@@ -7,7 +7,6 @@ import { manualSections } from "@/lib/manual-data";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Highlight } from "@/components/ui/highlight";
-import { AiAssistant } from "@/components/ai-assistant";
 import { cn } from "@/lib/utils";
 
 type NavLink = {
@@ -167,7 +166,6 @@ export function ManualPage() {
       </main>
 
       <div className="fixed right-4 bottom-4 z-50 flex flex-col gap-3">
-        <AiAssistant />
         {showScrollTop && (
           <Button
             variant="secondary"
