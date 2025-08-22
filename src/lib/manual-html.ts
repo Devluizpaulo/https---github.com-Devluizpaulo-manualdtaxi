@@ -166,6 +166,7 @@ export const manualHtml = `
         <summary>Observações</summary>
         <div>
           <ul>
+            <li><strong>Notificações:</strong> As solicitações serão notificadas através de mensagens e aviso sonoro. Assim que for notificado, prossiga para o PA solicitado.</li>
             <li><strong>GPS Ativo:</strong> Mantenha o GPS sempre ativo e com sinal forte.</li>
             <li><strong>Responda Imediatamente:</strong> O sistema depende da sua resposta rápida.</li>
             <li><strong>Perda da Posição:</strong> Sair de qualquer PA sem ser solicitado ou não responder a um chamado reposiciona a unidade ao final do PA5.</li>
@@ -193,4 +194,3 @@ export const manualHtml = `
     </section>
 </body>
 </html>
-`;
