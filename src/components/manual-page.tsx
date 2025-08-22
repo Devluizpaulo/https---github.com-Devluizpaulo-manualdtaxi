@@ -93,7 +93,7 @@ export function ManualPage() {
           <div className="flex h-20 items-center justify-between py-3">
             <div className="flex items-center gap-3 min-w-0">
                <div className="w-14 h-14 relative flex-shrink-0">
-                <Image src="data:image/png;base64,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" alt="D-Táxi Logo" layout="fill" objectFit="contain" />
+                <Image src="/images/logo.png" alt="D-Táxi Logo" layout="fill" objectFit="contain" />
               </div>
               <div>
                 <h1 className="text-lg font-bold truncate text-primary">
@@ -211,3 +211,5 @@ export function ManualPage() {
     </>
   );
 }
+
+    
