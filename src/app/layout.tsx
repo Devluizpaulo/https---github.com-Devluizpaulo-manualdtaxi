@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230a7d32' d='M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2Zm0 2.2a7.8 7.8 0 1 0 0 15.6a7.8 7.8 0 0 0 0-15.6Zm-.2 2.4c.5 0 .9.4.9.9v4.6l3.3 1.9c.43.25.58.8.33 1.22a.9.9 0 0 1-1.22.33l-3.7-2.1a1.4 1.4 0 0 1-.64-1.2V7.5c0-.5.4-.9.9-.9Z'/%3E%3C/svg%3E" type="image/svg+xml" />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-car'%3E%3Cpath d='M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h2'/%3E%3Cpath d='M9 17h6'/%3E%3Cpath d='M6 17H4c-.6 0-1-.4-1-1v-6c0-.9.7-1.7 1.5-1.9C4.7 7.6 7 7 7 7s1.3 1.4 2.2 2.3c.5.4 1.1.7 1.8.7h5c.6 0 1-.4 1-1v-2c0-.6-.4-1-1-1h-1'/%3E%3Ccircle cx='7.5' cy='17.5' r='2.5'/%3E%3Ccircle cx='16.5' cy='17.5' r='2.5'/%3E%3C/svg%3E" type="image/svg+xml" />
       </head>
       <body className={cn("font-body antialiased", inter.variable)}>
         <ThemeProvider
