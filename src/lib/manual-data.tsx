@@ -2,7 +2,7 @@ import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from 'next/image';
-import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive } from "lucide-react";
+import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin } from "lucide-react";
 
 
 const Pill = ({ variant, children }: { variant: 'ok' | 'warn' | 'err', children: React.ReactNode }) => {
@@ -268,80 +268,57 @@ export const manualSections = [
             <>
             {renderContent(
                 <>
-                <p className="lead"><strong>Guia completo para uso do sistema digital D-Táxi.</strong></p>
-                <p>O aplicativo PDA é a ferramenta essencial para operar no sistema D-Táxi. Este guia explica todas as funcionalidades e como utilizá-las corretamente.</p>
+                    <p className="lead"><strong>Guia da Tela Principal do Aplicativo D-Táxi.</strong></p>
+                    <p>Esta seção detalha a interface principal do aplicativo PDA, sua ferramenta para operar eficientemente no sistema D-Táxi.</p>
                 </>,
                 query
             )}
-            <Accordion type="multiple" className="w-full space-y-2 mt-4">
-                <AccordionItem value="pda-1">
-                    <AccordionTrigger><Highlight text="Tela Principal e Status" query={query} /></AccordionTrigger>
+            <Accordion type="multiple" className="w-full space-y-2 mt-4" defaultValue={['pda-home', 'pda-menu']}>
+                <AccordionItem value="pda-home">
+                    <AccordionTrigger><Highlight text="Tela Principal (Home)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                          {renderContent(<>
-                          <ul className="list-disc pl-5 space-y-2">
-                            <li><strong>Header Azul:</strong> Mostra o número da sua unidade (ex: "732") e status atual ("LIVRE" quando disponível).</li>
-                            <li><strong>Menu Hambúrguer:</strong> Acesso às configurações e opções do sistema.</li>
-                            <li><strong>Ícone Verde:</strong> Indica status de conexão e operação do sistema.</li>
-                            <li><strong>Abas de Navegação:</strong> "MAPA" para visualização geográfica e "ÁREAS/PAs" para controle da fila.</li>
-                          </ul>
-                          <div className="grid md:grid-cols-2 gap-4 mt-4">
-                            <div>
-                              <p><strong>Tela de Status:</strong></p>
-                              <div className="app-screenshot">
-                                <Image src="https://placehold.co/300x550.png" width={300} height={550} alt="Tela de alteração de status do aplicativo" className="app-img" data-ai-hint="app screenshot" />
-                              </div>
-                              <p>Quando precisar alterar seu status, o aplicativo mostra opções como:</p>
-                              <ul className="list-disc pl-5 space-y-1">
-                                <li><strong>OCUPADO:</strong> Quando estiver com passageiro</li>
-                                <li><strong>FIM DE JORNADA:</strong> Quando encerrar seu turno</li>
-                                <li><strong>CANCELAR:</strong> Para voltar ao status anterior</li>
-                              </ul>
-                              <p>Esta tela aparece ao clicar no seu status atual.</p>
+                            <p>A tela inicial oferece acesso rápido a todas as funções essenciais para o seu dia a dia.</p>
+                            <div className="grid md:grid-cols-2 gap-4 mt-4">
+                                <div className="app-screenshot">
+                                    <Image src="https://placehold.co/300x550.png" width={300} height={550} alt="Tela principal do aplicativo PDA" className="app-img" data-ai-hint="app homescreen" />
+                                </div>
+                                <div>
+                                    <p><strong>Funcionalidades Principais:</strong></p>
+                                    <ul className="list-disc pl-5 space-y-2 my-2">
+                                        <li>
+                                            <strong>Status do Motorista:</strong> Um botão central e grande permite alterar seu status com um toque. As cores indicam sua condição atual:
+                                            <ul className='my-2 space-y-1'>
+                                                <li><Pill variant='ok'>Livre (Verde)</Pill></li>
+                                                <li><Pill variant='warn'>Ocupado (Laranja)</Pill></li>
+                                                <li><Pill variant='err'>Fim de Jornada (Vermelho)</Pill></li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Alternar Visualização:</strong> Botões para alternar rapidamente entre a visualização de <strong className='inline-flex items-center gap-1'><MapIcon size={14}/> Mapa</strong> e <strong className='inline-flex items-center gap-1'><BarChart size={14}/> Status dos PAs</strong>.</li>
+                                        <li><strong>Exibição de PAs:</strong> A visualização de status mostra apenas os Pontos de Apoio (PAs) que têm veículos, otimizando a visualização e ocultando áreas vazias.</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div>
-                              <p><strong>Tela de Áreas/PAs:</strong></p>
-                              <div className="app-screenshot">
-                                <Image src="https://placehold.co/300x550.png" width={300} height={550} alt="Tela de áreas e PAs do aplicativo" className="app-img" data-ai-hint="app interface" />
-                              </div>
-                              <p>Mostra a distribuição de veículos em cada área:</p>
-                                <ul className="list-disc pl-5 space-y-1">
-                                    <li><strong>Área:</strong> Identificação do local (ex: "0 AERO SUP", "3 PA3")</li>
-                                    <li><strong>Veículos:</strong> Quantidade de carros em cada área</li>
-                                    <li><strong>Colunas 15/30/45+:</strong> <strong>Corridas agendadas</strong> - indicam quantas corridas estão programadas para cada horário (15 min, 30 min, 45+ min)</li>
-                                </ul>
-                                <p><strong>Sistema de Notificações:</strong> Quando há uma vaga disponível em um PA, o aplicativo exibe automaticamente uma mensagem de alerta centralizada com:</p>
-                                <ul className="list-disc pl-5 space-y-1">
-                                    <li><strong>Mensagem:</strong> "Seguir ao PA / Area: [NOME_DO_PA]. Vaga para [X] carros! (HH:MM:SS)"</li>
-                                    <li><strong>Aviso Sonoro:</strong> Alerta sonoro para chamar atenção imediatamente</li>
-                                    <li><strong>Botão "PARAR SOM":</strong> Para desativar o aviso sonoro</li>
-                                    <li><strong>Botão "OK":</strong> Para confirmar a notificação</li>
-                                </ul>
-                                <p>Use esta tela para monitorar o fluxo, acompanhar corridas agendadas e responder rapidamente às notificações de vagas disponíveis.</p>
-                            </div>
-                          </div>
                           </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="pda-2">
-                    <AccordionTrigger><Highlight text="Controle de Áreas e PAs" query={query} /></AccordionTrigger>
+                <AccordionItem value="pda-menu">
+                    <AccordionTrigger><Highlight text="Menu de Navegação (Menu Hambúrguer)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                             <ul className="list-disc pl-5 space-y-2">
-                                <li><strong>Tabela de Áreas:</strong> Exibe todas as áreas disponíveis com contagem de veículos em cada uma.</li>
-                                <li><strong>Coluna "Área":</strong> Nome da área (ex: "0 AERO SUP", "1 AERO INF", "2 PA2").</li>
-                                <li><strong>Coluna "Veículos":</strong> Quantidade de veículos atualmente na área (ex: "4", "3", "2").</li>
-                                <li><strong>Colunas "15", "30", "45+":</strong> <strong>Corridas agendadas</strong> - número de corridas programadas para cada intervalo de tempo:
-                                <ul className="list-disc pl-5 space-y-1 my-2">
-                                    <li><strong>15:</strong> Corridas agendadas para os próximos 15 minutos</li>
-                                    <li><strong>30:</strong> Corridas agendadas para os próximos 30 minutos</li>
-                                    <li><strong>45+:</strong> Corridas agendadas para além de 45 minutos</li>
-                                </ul>
-                                </li>
-                                <li><strong>Ordenação:</strong> Clique na coluna "Área" para ordenar alfabeticamente.</li>
+                            <p>O menu lateral, acessado pelo ícone de "hambúrguer", contém atalhos para diversas áreas administrativas e de suporte do aplicativo.</p>
+                            <ul className="list-disc pl-5 space-y-2 mt-4">
+                                <li><strong className='flex items-center gap-2'><Settings size={16}/>Configurações:</strong> Ajustes gerais do aplicativo.</li>
+                                <li><strong className='flex items-center gap-2'><History size={16}/>Histórico de Corridas:</strong> Consulte suas corridas anteriores.</li>
+                                <li><strong className='flex items-center gap-2'><MessageSquare size={16}/>Histórico de Mensagens:</strong> Acesse o histórico de comunicações.</li>
+                                <li><strong className='flex items-center gap-2'><Smartphone size={16}/>Versão do Aplicativo:</strong> Verifique a versão atual do app.</li>
+                                <li><strong className='flex items-center gap-2'><User size={16}/>Perfil:</strong> Acesse e edite suas informações de perfil.</li>
+                                <li><strong className='flex items-center gap-2'><Car size={16}/>Dados do Carro:</strong> Informações sobre o veículo cadastrado.</li>
+                                <li><strong className='flex items-center gap-2'><User size={16}/>Dados do Motorista:</strong> Suas informações como motorista.</li>
+                                <li><strong className='flex items-center gap-2'><Wrench size={16}/>Preferências:</strong> Personalize as configurações do aplicativo.</li>
+                                <li><strong className='flex items-center gap-2'><TerminalSquare size={16}/>Gerar Corrida via Totem:</strong> Funcionalidade para iniciar corridas a partir do totem.</li>
+                                <li><strong className='flex items-center gap-2 text-red-500'><Siren size={16}/>QRU:</strong> Alerta de emergência.</li>
                             </ul>
-                             <div className="app-screenshot mt-4">
-                                <Image src="https://placehold.co/800x300.png" width={800} height={300} alt="Tabela de controle de áreas" className="app-img" data-ai-hint="data table" />
-                            </div>
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
