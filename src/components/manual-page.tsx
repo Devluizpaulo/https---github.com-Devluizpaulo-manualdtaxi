@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -8,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Highlight } from "@/components/ui/highlight";
 import { cn } from "@/lib/utils";
-import { Home, Car, Map, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, ArrowUp, Search, Menu, X, ChevronsUp, ChevronsDown, Palette } from "lucide-react";
+import { Home, Car, Map, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, ArrowUp, Search, Menu, X, ChevronsUp, ChevronsDown } from "lucide-react";
 
 type NavLink = {
   id: string;
@@ -29,10 +30,14 @@ const navLinks: NavLink[] = [
 
 export function ManualPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [allOpen, setAllOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("intro");
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openAccordions, setOpenAccordions] = useState<string[]>([]);
+
+  const allAccordionItems = manualSections.flatMap(section => 
+    section.accordionItems ? section.accordionItems : []
+  );
 
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
@@ -72,14 +77,14 @@ export function ManualPage() {
   };
 
   const handleExpandToggle = () => {
-    setAllOpen((prev) => {
-      const newState = !prev;
-      document.querySelectorAll("details").forEach((detail) => {
-        detail.open = newState;
-      });
-      return newState;
-    });
+    if (openAccordions.length === allAccordionItems.length) {
+      setOpenAccordions([]);
+    } else {
+      setOpenAccordions(allAccordionItems);
+    }
   };
+  
+  const allOpen = openAccordions.length === allAccordionItems.length;
 
   return (
     <>
@@ -177,7 +182,7 @@ export function ManualPage() {
                 <Highlight text={section.title} query={searchQuery} />
               </h2>
               <div className="prose prose-sm md:prose-base prose-p:text-muted-foreground dark:prose-invert max-w-none prose-headings:text-foreground prose-strong:text-foreground">
-                 {typeof section.content === 'function' ? section.content({ query: searchQuery }) : section.content}
+                 {typeof section.content === 'function' ? section.content({ query: searchQuery, openItems: openAccordions, onOpenChange: setOpenAccordions }) : section.content}
               </div>
             </section>
           ))}

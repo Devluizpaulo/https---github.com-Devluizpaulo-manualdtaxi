@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -16,10 +17,18 @@ const Pill = ({ variant, children }: { variant: 'ok' | 'warn' | 'err', children:
 
 type ContentProps = {
     query: string;
+    openItems?: string[];
+    onOpenChange?: (items: string[]) => void;
 };
 
 const renderContent = (content: React.ReactNode, query: string) => {
     return <HighlightContent query={query}>{content}</HighlightContent>;
+};
+
+const accordionSections = {
+    fluxo: ["fluxo-pa5", "fluxo-bolsao", "fluxo-pa3", "fluxo-pa2", "fluxo-piso-inf", "fluxo-piso-sup"],
+    regras: ["regras-fila", "regras-obs"],
+    pda: ["pda-home", "pda-menu", "pda-solucao", "pda-requisitos"]
 };
 
 export const manualSections = [
@@ -84,9 +93,10 @@ export const manualSections = [
         id: 'fluxo',
         icon: ListChecks,
         title: '2. Fluxo de Trabalho e Regras por Ponto de Apoio',
-        content: ({ query }: ContentProps) => (
-             <Accordion type="multiple" className="w-full space-y-2">
-                <AccordionItem value="item-1">
+        accordionItems: accordionSections.fluxo,
+        content: ({ query, openItems, onOpenChange }: ContentProps) => (
+             <Accordion type="multiple" className="w-full space-y-2" value={openItems} onValueChange={onOpenChange}>
+                <AccordionItem value="fluxo-pa5">
                     <AccordionTrigger>
                         <Highlight text="PA5 (Ponto de Entrada)" query={query}/>
                     </AccordionTrigger>
@@ -104,7 +114,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="item-2">
+                 <AccordionItem value="fluxo-bolsao">
                     <AccordionTrigger><Highlight text="Bolsão Principal (Ponto de Espera)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -123,7 +133,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-3">
+                <AccordionItem value="fluxo-pa3">
                     <AccordionTrigger><Highlight text="PA3 (Ponto Estratégico)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -142,7 +152,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-4">
+                <AccordionItem value="fluxo-pa2">
                     <AccordionTrigger><Highlight text="PA2 (Ponto Final de Espera)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -160,7 +170,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                <AccordionItem value="item-5">
+                <AccordionItem value="fluxo-piso-inf">
                     <AccordionTrigger><Highlight text="Piso Inferior (Área de Embarque)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -173,7 +183,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="item-6">
+                 <AccordionItem value="fluxo-piso-sup">
                     <AccordionTrigger><Highlight text="Piso Superior (PA-0) – Área de Embarque" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -228,9 +238,10 @@ export const manualSections = [
         id: 'regras',
         icon: AlertCircle,
         title: '5. Regras Gerais e Cenários Específicos',
-        content: ({ query }: ContentProps) => (
-             <Accordion type="multiple" className="w-full space-y-2">
-                <AccordionItem value="item-1">
+        accordionItems: accordionSections.regras,
+        content: ({ query, openItems, onOpenChange }: ContentProps) => (
+             <Accordion type="multiple" className="w-full space-y-2" value={openItems} onValueChange={onOpenChange}>
+                <AccordionItem value="regras-fila">
                     <AccordionTrigger><Highlight text="Fila Única" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(
@@ -243,7 +254,7 @@ export const manualSections = [
                         )}
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="item-2">
+                 <AccordionItem value="regras-obs">
                     <AccordionTrigger><Highlight text="Observações" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(
@@ -265,7 +276,8 @@ export const manualSections = [
         id: 'pda',
         icon: FileText,
         title: '6. Manual do Aplicativo PDA',
-        content: ({ query }: ContentProps) => (
+        accordionItems: accordionSections.pda,
+        content: ({ query, openItems, onOpenChange }: ContentProps) => (
             <>
             {renderContent(
                 <>
@@ -274,7 +286,7 @@ export const manualSections = [
                 </>,
                 query
             )}
-            <Accordion type="multiple" className="w-full space-y-2 mt-4" defaultValue={['pda-home', 'pda-menu']}>
+            <Accordion type="multiple" className="w-full space-y-2 mt-4" value={openItems} onValueChange={onOpenChange}>
                 <AccordionItem value="pda-home">
                     <AccordionTrigger><Highlight text="Tela Principal (Home)" query={query} /></AccordionTrigger>
                     <AccordionContent>
@@ -323,7 +335,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="pda-7">
+                 <AccordionItem value="pda-solucao">
                     <AccordionTrigger><Highlight text="Solução de Problemas" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
@@ -345,7 +357,7 @@ export const manualSections = [
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
-                 <AccordionItem value="pda-8">
+                 <AccordionItem value="pda-requisitos">
                     <AccordionTrigger><Highlight text="Requisitos do Sistema" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
