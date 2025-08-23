@@ -27,7 +27,7 @@ const renderContent = (content: React.ReactNode, query: string) => {
 
 const accordionSections = {
     fluxo: ["fluxo-pa5", "fluxo-bolsao", "fluxo-pa3", "fluxo-pa2", "fluxo-piso-inf", "fluxo-piso-sup"],
-    regras: ["regras-fila", "regras-obs"],
+    regras: ["regras-fila-unica", "regras-gerais", "regras-obs"],
     pda: ["pda-home", "pda-menu", "pda-solucao", "pda-requisitos"]
 };
 
@@ -73,7 +73,7 @@ export const manualSections = [
         title: '1. A Estrutura da Fila e a Localização dos PAs',
         content: ({ query }: ContentProps) => renderContent(
             <>
-                <p>O sistema do D-Táxi é uma cadeia de espera, onde os carros se movem de áreas maiores para áreas menores, mais próximas ao embarque de passageiros. O fluxo é totalmente automático, baseado no sinal de GPS e na anotação cronológica (quem chega primeiro, é solicitado primeiro).</p>
+                <p>O sistema do D-Táxi é uma cadeia de espera, onde os carros se movem de áreas maiores para áreas menores, mais próximas ao embarque de passageiros. O fluxo é totalmente automático, baseado no sinal de GPS e na anotação cronológica (quem chega primeiro, é solicitado primeiro). Apesar de ter 34 vagas, o Bolsão é dinâmico, com alta rotatividade, atendendo em média mais de 90 carros por hora. A intenção não é que todos fiquem estacionados, mas sim que o local sirva para organizar a fila e oferecer um ponto de apoio confortável e rápido para os motoristas.</p>
                 <ul className="list-disc pl-5 space-y-2 mt-4">
                     <li><strong>PA5:</strong> A primeira entrada no sistema, com número ilimitado de vagas, localizado nas proximidades do Assaí Aeroporto.</li>
                     <li><strong>Bolsão Principal:</strong> Com 34 vagas, está localizado sob o viaduto da Washington Luís com Roberto Marinho, na Praça José Blota Júnior.</li>
@@ -275,29 +275,55 @@ export const manualSections = [
         accordionItems: accordionSections.regras,
         content: ({ query, openItems, onOpenChange }: ContentProps) => (
              <Accordion type="multiple" className="w-full space-y-2" value={openItems} onValueChange={onOpenChange}>
-                <AccordionItem value="regras-fila">
-                    <AccordionTrigger><Highlight text="Fila Única" query={query} /></AccordionTrigger>
+                <AccordionItem value="regras-fila-unica">
+                    <AccordionTrigger><Highlight text="Fila Única em Horários de Pico" query={query} /></AccordionTrigger>
+                    <AccordionContent>
+                        {renderContent(
+                             <>
+                                <p>Em horários de grande movimento (manhãs e fins de tarde), o fluxo de passageiros aumenta e o trânsito reduz o número de carros disponíveis. Nesses momentos, é formada uma <strong>fila única</strong> com veículos de todas as empresas credenciadas (D-Táxi, Rádio Táxi Vermelho e Branco, etc.) para otimizar o atendimento.</p>
+                                <p className="mt-2 font-semibold">Conduta na Fila Única:</p>
+                                <ul className="list-disc pl-5 space-y-2 mt-2">
+                                    <li><strong>Ordem e Cortesia:</strong> A regra é clara: respeite a ordem de chegada. Não ultrapasse e mantenha a cordialidade com todos os colegas.</li>
+                                    <li><strong>Pisca Alerta:</strong> Mantenha o pisca alerta sempre ligado para sinalizar que você está na fila de operação.</li>
+                                    <li><strong>Acessos:</strong>
+                                        <ul className='list-decimal pl-5 mt-1 text-sm'>
+                                            <li><strong>Vindo do Túnel:</strong> Permaneça à direita, peça passagem com cuidado e aguarde a preferência para entrar na fila.</li>
+                                            <li><strong>Vindo da Av. Washington Luís/VASP:</strong> Mantenha-se na sua posição, sem cortar caminho ou furar a fila.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Proibido Descer do Carro:</strong> Apenas em situações onde não há fiscais ou coordenadores presentes. A agilidade é crucial.</li>
+                                    <li>
+                                        <strong><span className="text-red-500 font-bold">Tolerância Zero com Infrações:</span></strong> Unidades flagradas cortando fila, especialmente pelo acesso do piso inferior, serão <strong>removidas da fila e notificadas para suspensão</strong>.
+                                    </li>
+                                    <li><strong>Agilidade no Embarque:</strong> Ao chegar ao ponto, deixe o carro destravado e o porta-malas liberado (se possível, já aberto) para agilizar o embarque.</li>
+                                    <li><strong>Siga as Orientações:</strong> Fique atento às instruções dos fiscais e coordenadores de todas as empresas. A colaboração é fundamental.</li>
+                                </ul>
+                             </>,
+                            query
+                        )}
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="regras-gerais">
+                    <AccordionTrigger><Highlight text="Regras Gerais da Fila" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(
                              <ul className="list-disc pl-5 space-y-2">
-                                <li><strong>Pisca Alerta:</strong> Mantenha ligado.</li>
-                                <li><strong>Respeito à Fila:</strong> Siga a sequência, sem ultrapassar veículos de nenhuma empresa.</li>
-                                <li><strong>Problemas:</strong> Direcione reclamações à coordenação.</li>
+                                <li><strong>Respeito à Sequência:</strong> Siga a fila, sem ultrapassar veículos de nenhuma empresa.</li>
+                                <li><strong>Problemas:</strong> Direcione reclamações à coordenação para resolução.</li>
                             </ul>,
                             query
                         )}
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="regras-obs">
-                    <AccordionTrigger><Highlight text="Observações" query={query} /></AccordionTrigger>
+                    <AccordionTrigger><Highlight text="Notificações e Sistema" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(
                             <ul className="list-disc pl-5 space-y-2">
-                                <li><strong>Notificações:</strong> As solicitações serão notificadas através de mensagens e aviso sonoro. Assim que for notificado, prossiga para o PA solicitado.</li>
-                                <li><strong>GPS Ativo:</strong> Mantenha o GPS sempre ativo e com sinal forte.</li>
-                                <li><strong>Responda Imediatamente:</strong> O sistema depende da sua resposta rápida.</li>
-                                <li><strong>Perda da Posição:</strong> Sair de qualquer PA sem ser solicitado ou não responder a um chamado reposiciona a unidade ao final do PA5.</li>
-                                <li><strong>Infrações:</strong> Descumprimento das regras pode resultar em suspensão temporária do acesso ao sistema.</li>
+                                <li><strong>Notificações:</strong> As solicitações para avançar aos PAs são feitas por <strong>mensagem no app e aviso sonoro</strong>. Responda prontamente.</li>
+                                <li><strong>GPS Ativo:</strong> Mantenha o GPS sempre ativo e com sinal forte para que o sistema funcione corretamente.</li>
+                                <li><strong>Perda da Posição:</strong> Sair de qualquer PA sem ser solicitado ou não responder a um chamado reposiciona a unidade ao final da fila no PA5.</li>
+                                <li><strong>Infrações:</strong> O descumprimento das regras pode resultar em suspensão temporária do acesso ao sistema.</li>
                             </ul>,
                             query
                         )}
@@ -358,7 +384,7 @@ export const manualSections = [
                                 <li><strong className='flex items-center gap-2'><Settings size={16}/>Configurações:</strong> Ajustes gerais do aplicativo.</li>
                                 <li><strong className='flex items-center gap-2'><History size={16}/>Histórico de Corridas:</strong> Consulte suas corridas anteriores.</li>
                                 <li><strong className='flex items-center gap-2'><MessageSquare size={16}/>Histórico de Mensagens:</strong> Acesse o histórico de comunicações.</li>
-                                <li><strong className='flex items-center gap-2'><Smartphone size={16}/>Versão do Aplicativo:</strong> Verifique a versão atual do app.</li>
+                                <li><strong className='flex items-center gap-2'><Smartphone size={16}/>Versão do Aplicativo:</strong> Verifique a version atual do app.</li>
                                 <li><strong className='flex items-center gap-2'><User size={16}/>Perfil:</strong> Acesse e edite suas informações de perfil.</li>
                                 <li><strong className='flex items-center gap-2'><Car size={16}/>Dados do Carro:</strong> Informações sobre o veículo cadastrado.</li>
                                 <li><strong className='flex items-center gap-2'><User size={16}/>Dados do Motorista:</strong> Suas informações como motorista.</li>
