@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Highlight } from "@/components/ui/highlight";
 import { cn } from "@/lib/utils";
-import { Home, Car, Map, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, ArrowUp, Search, Menu, X, ChevronsUp, ChevronsDown } from "lucide-react";
+import { Home, Car, Map, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, ArrowUp, Search, Menu, X, ChevronsUp, ChevronsDown, Link as LinkIcon, ParkingCircle } from "lucide-react";
 
 type NavLink = {
   id: string;
@@ -211,5 +211,3 @@ export function ManualPage() {
     </>
   );
 }
-
-    

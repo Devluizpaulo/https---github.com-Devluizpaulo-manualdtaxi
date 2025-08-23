@@ -3,7 +3,7 @@ import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from 'next/image';
-import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin } from "lucide-react";
+import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin, Link as LinkIcon, ParkingCircle } from "lucide-react";
 
 
 const Pill = ({ variant, children }: { variant: 'ok' | 'warn' | 'err', children: React.ReactNode }) => {
@@ -111,6 +111,42 @@ export const manualSections = [
                                 <li><strong>Disponibilidade:</strong> Evite refeições no PA5 com o PDA livre.</li>
                                 <li><strong>Avanço:</strong> Aguarde a notificação do aplicativo para se mover ao Bolsão Principal.</li>
                             </ul>
+                            <h4 className="font-bold text-base mt-4 mb-2">Como vai funcionar a área de espera do PA 5</h4>
+                            <div className="space-y-4">
+                                <div>
+                                    <h5 className="font-semibold">1️⃣ Vindo do Centro pela Av. Washington Luís</h5>
+                                    <ul className="list-disc pl-5 space-y-1 text-sm mt-1">
+                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14}/> Onde aguardar:</strong> região do Mercado Assaí (pontos permitidos nos arredores).</li>
+                                        <li><strong className="inline-flex items-center gap-2">🔔 Quando chamado:</strong> siga pela pista local e acesse o bolsão com calma e atenção.</li>
+                                        <li><a href="https://maps.app.goo.gl/mFXdgY2Pv4WjzWdf9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline"><LinkIcon size={14}/> Localização no mapa</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 className="font-semibold">2️⃣ Vindo de Interlagos (Washington Luís → sentido aeroporto)</h5>
+                                    <ul className="list-disc pl-5 space-y-1 text-sm mt-1">
+                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14}/> Onde aguardar:</strong> próximo à Nikon (nos pontos permitidos).</li>
+                                        <li><strong className="inline-flex items-center gap-2">🔔 Quando chamado:</strong> mantenha-se na direita e entre no bolsão pela entrada indicada.</li>
+                                        <li><a href="https://maps.app.goo.gl/ZHv32MjkMqVm5RxMA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline"><LinkIcon size={14}/> Localização no mapa</a></li>
+                                    </ul>
+                                </div>
+                                 <div>
+                                    <h5 className="font-semibold">3️⃣ Vindo do Brooklin (pela Av. Jornalista Roberto Marinho → sentido aeroporto)</h5>
+                                    <ul className="list-disc pl-5 space-y-1 text-sm mt-1">
+                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14}/> Onde aguardar:</strong> vias próximas à comunidade, de preferência na “rua de cima”, como Rua Joaquim Nabuco ou Rua Laplace.</li>
+                                        <li><strong>✅ Alternativa:</strong> pode optar por aguardar próximo ao Assaí.</li>
+                                        <li><strong className="inline-flex items-center gap-2">🔔 Quando chamado:</strong> siga com tranquilidade para a entrada do bolsão.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 className="font-semibold">4️⃣ Vindo do Jabaquara (pela Av. Jornalista Roberto Marinho → aeroporto)</h5>
+                                     <ul className="list-disc pl-5 space-y-1 text-sm mt-1">
+                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14}/> Onde aguardar:</strong> próximo ao Parque do Chuvisco (há área de sombra de espera).</li>
+                                        <li><strong>✅ Alternativa:</strong> aguardar no lado da Nikon.</li>
+                                        <li><strong className="inline-flex items-center gap-2">🔔 Quando chamado:</strong> dirija-se ao bolsão pelo acesso indicado, sem paradas no caminho.</li>
+                                        <li><a href="https://maps.app.goo.gl/9zqwPHT36vESbfMB6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline"><LinkIcon size={14}/> Localização no mapa</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
