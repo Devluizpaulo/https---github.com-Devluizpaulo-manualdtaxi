@@ -74,6 +74,7 @@ export const manualSections = [
         content: ({ query }: ContentProps) => renderContent(
             <>
                 <p>O sistema do D-Táxi é uma cadeia de espera, onde os carros se movem de áreas maiores para áreas menores, mais próximas ao embarque de passageiros. O fluxo é totalmente automático, baseado no sinal de GPS e na anotação cronológica (quem chega primeiro, é solicitado primeiro).</p>
+                <p className="mt-2">As vagas são rotativas e atendem a um fluxo médio de aproximadamente <strong>90 carros por hora</strong>, sendo mais que suficiente para a operação. A intenção não é ficar estacionado, e sim ter um lugar para organizar a fila, ir ao banheiro ou pegar uma marmita rapidamente.</p>
                 <ul className="list-disc pl-5 space-y-2 mt-4">
                     <li><strong>PA5:</strong> A primeira entrada no sistema, com número ilimitado de vagas, localizado nas proximidades do Assaí Aeroporto.</li>
                     <li><strong>Bolsão Principal:</strong> Com 34 vagas, está localizado sob o viaduto da Washington Luís com Roberto Marinho, na Praça José Blota Júnior.</li>
