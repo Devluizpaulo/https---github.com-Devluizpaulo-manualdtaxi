@@ -41,7 +41,7 @@ export const manualSections = [
                 <p className="lead"><strong>Aeroporto de Congonhas.</strong></p>
                 <p>Este manual é o seu guia completo para operar no aeroporto pela <strong>D-TÁXI</strong>. Ele detalha o funcionamento de cada Ponto de Apoio (PA) e as regras que garantem a eficiência e o profissionalismo do nosso serviço.</p>
                 <div className="app-screenshot mt-4">
-                  <Image src="/images/congonhas-airport.png" width={800} height={400} alt="Foto do Aeroporto de Congonhas" className="app-img" data-ai-hint="airport terminal" />
+                  <Image src="https://placehold.co/800x400.png" width={800} height={400} alt="Foto do Aeroporto de Congonhas" className="app-img" data-ai-hint="airport terminal" />
                 </div>
             </>,
             query
@@ -61,7 +61,7 @@ export const manualSections = [
                     <li><strong>Sapato:</strong> Social preto ou sapatênis preto, totalmente preto, sem detalhes.</li>
                 </ul>
                 <div className="app-screenshot mt-4">
-                  <Image src="/images/taxi-driver-uniform.png" width={600} height={400} alt="Uniforme padrão do motorista" className="app-img" data-ai-hint="taxi driver uniform" />
+                  <Image src="https://placehold.co/600x400.png" width={600} height={400} alt="Uniforme padrão do motorista" className="app-img" data-ai-hint="taxi driver" />
                 </div>
             </>,
             query
@@ -83,7 +83,7 @@ export const manualSections = [
                     <li><strong>Piso Superior (PA0):</strong> Possui 7 vagas para o embarque de passageiros.</li>
                 </ul>
                  <div className="app-screenshot mt-4">
-                  <Image src="/images/airport-map.png" width={800} height={500} alt="Mapa das áreas de espera (PAs)" className="app-img" data-ai-hint="airport map" />
+                  <Image src="https://placehold.co/800x500.png" width={800} height={500} alt="Mapa das áreas de espera (PAs)" className="app-img" data-ai-hint="airport map" />
                 </div>
             </>,
             query
@@ -396,7 +396,7 @@ export const manualSections = [
                             <p>A tela inicial oferece acesso rápido a todas as funções essenciais para o seu dia a dia.</p>
                             <div className="grid md:grid-cols-2 gap-4 mt-4">
                                 <div className="app-screenshot">
-                                    <Image src="/images/pda-app-home.png" width={300} height={550} alt="Tela principal do aplicativo PDA" className="app-img" data-ai-hint="app homescreen" />
+                                    <Image src="https://placehold.co/400x800.png" width={400} height={800} alt="Tela principal do aplicativo PDA" className="app-img" data-ai-hint="app homescreen" />
                                 </div>
                                 <div>
                                     <p><strong>Funcionalidades Principais:</strong></p>
@@ -482,5 +482,3 @@ export const manualSections = [
         )
     },
 ];
-
-    
