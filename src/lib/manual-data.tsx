@@ -213,6 +213,8 @@ export const manualSections = [
                                 <li><strong>Função:</strong> Embarque de alta prioridade, abastecido pelo PA3.</li>
                                 <li><strong>Regras:</strong> Portas destravadas, vidros fechados e ar-condicionado ligado.</li>
                                 <li>Não é permitido limpar o carro, entrar no saguão para chamar passageiros ou buzinar.</li>
+                                <li><strong className='text-red-500'>Acesso Proibido:</strong> É estritamente proibido dar ré ou passar sobre a calçada para acessar o piso inferior. Esta atitude viola normas de trânsito (CTB), da AENA e das empresas.</li>
+                                <li><strong className='text-yellow-500'>Erro de Rota:</strong> Se errar o acesso, é obrigatório retomar o processo e entrar na fila novamente. Não cometa infrações para retornar.</li>
                             </ul>
                         </>, query)}
                     </AccordionContent>
