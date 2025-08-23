@@ -442,5 +442,3 @@ export const manualSections = [
         )
     },
 ];
-
-    

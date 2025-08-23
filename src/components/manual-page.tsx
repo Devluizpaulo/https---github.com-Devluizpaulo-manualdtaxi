@@ -50,7 +50,7 @@ export function ManualPage() {
           }
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0.1 }
     );
 
     Object.values(sectionRefs.current).forEach((section) => {
@@ -88,7 +88,7 @@ export function ManualPage() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-background/80 border-b border-border backdrop-blur-sm">
+      <header className="sticky top-0 z-40 w-full bg-background/80 border-b border-border/50 backdrop-blur-sm transition-all duration-300">
         <div className="container mx-auto px-4">
           <div className="flex h-20 items-center justify-between py-3">
             <div className="flex items-center gap-3 min-w-0">
@@ -175,13 +175,13 @@ export function ManualPage() {
               key={section.id}
               id={section.id}
               ref={(el) => (sectionRefs.current[section.id] = el)}
-              className="bg-card border rounded-2xl shadow-lg p-4 md:p-6 scroll-mt-36 transition-all duration-300 hover:shadow-primary/10 hover:border-primary/20"
+              className="bg-card border rounded-2xl shadow-sm p-4 md:p-6 scroll-mt-36 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:border-primary/30"
             >
               <h2 className="flex items-center gap-3 text-xl font-bold mb-4 text-primary">
                 <section.icon className="w-6 h-6" />
                 <Highlight text={section.title} query={searchQuery} />
               </h2>
-              <div className="prose prose-sm md:prose-base prose-p:text-muted-foreground dark:prose-invert max-w-none prose-headings:text-foreground prose-strong:text-foreground">
+              <div className="prose prose-sm md:prose-base prose-p:text-muted-foreground prose-p:text-justify dark:prose-invert max-w-none prose-headings:text-foreground prose-strong:text-foreground">
                  {typeof section.content === 'function' ? section.content({ query: searchQuery, openItems: openAccordions, onOpenChange: setOpenAccordions }) : section.content}
               </div>
             </section>

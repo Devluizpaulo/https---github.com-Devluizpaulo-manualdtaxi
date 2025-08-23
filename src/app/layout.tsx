@@ -23,7 +23,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/logo.png" type="image/png" />
       </head>
-      <body className={cn("font-body antialiased", inter.variable)}>
+      <body className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable
+        )}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,5 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-    
