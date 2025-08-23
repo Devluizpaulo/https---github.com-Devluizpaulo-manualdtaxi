@@ -80,7 +80,7 @@ export const manualSections = [
                     <li><strong>PA3:</strong> Com 24 vagas, está localizado na Rua dos Tamoios, oposto ao número 100.</li>
                     <li><strong>PA2:</strong> Com 12 vagas, está localizado na extensão do desembarque, próximo à portaria 3 da Gol Linhas Aéreas.</li>
                     <li><strong>Piso Inferior:</strong> Conta com 2 vagas para o embarque de passageiros.</li>
-                    <li><strong>Piso Superior:</strong> Possui 7 vagas para o embarque de passageiros.</li>
+                    <li><strong>Piso Superior (PA0):</strong> Possui 7 vagas para o embarque de passageiros.</li>
                 </ul>
                  <div className="app-screenshot mt-4">
                   <Image src="/images/airport-map.png" width={800} height={500} alt="Mapa das áreas de espera (PAs)" className="app-img" data-ai-hint="airport map" />
@@ -193,7 +193,7 @@ export const manualSections = [
                             <p className='text-sm text-muted-foreground'>12 vagas</p>
                             <ul className="list-disc pl-5 space-y-1">
                                 <li><strong>Localização:</strong> Extensão do desembarque, próximo à portaria 3 da Gol.</li>
-                                <li><strong>Função:</strong> Última área antes do embarque no Piso Superior (P0).</li>
+                                <li><strong>Função:</strong> Última área antes do embarque no Piso Superior (PA0).</li>
                             </ul>
                             <p><strong>Instruções:</strong></p>
                             <ul className="list-disc pl-5 space-y-1">
@@ -220,7 +220,7 @@ export const manualSections = [
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="fluxo-piso-sup">
-                    <AccordionTrigger><Highlight text="Piso Superior (PA-0) – Área de Embarque" query={query} /></AccordionTrigger>
+                    <AccordionTrigger><Highlight text="Piso Superior (PA0) – Área de Embarque" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
                             <p className='text-sm text-muted-foreground'>7 vagas</p>
@@ -325,33 +325,32 @@ export const manualSections = [
                 </AccordionItem>
                  <AccordionItem value="regras-tunel">
                     <AccordionTrigger>
-                        <Highlight text="Operação do Túnel (Acesso ao PA2)" query={query}/>
+                        <Highlight text="Operação do Túnel (Acesso ao PA0)" query={query}/>
                     </AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                            <p>O acesso ao PA2 via túnel é controlado automaticamente pelo sistema para garantir que o PA0 (Piso Superior) seja sempre abastecido, priorizando o embarque de passageiros.</p>
+                            <p>O acesso ao <strong>PA0 (Piso Superior)</strong> via túnel é uma manobra estratégica para garantir que a área de embarque principal seja sempre abastecida, priorizando o atendimento ao passageiro. O controle desse fluxo não é feito pelo aplicativo, mas sim pela <strong>observação e bom senso</strong> dos motoristas.</p>
                             <p className="font-semibold mt-2">Lógica de Funcionamento:</p>
                              <ul className="list-disc pl-5 space-y-2 mt-2">
-                                <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-green-500" />Túnel Liberado:</strong> O túnel é liberado <strong>automaticamente</strong> apenas quando não há carros suficientes no PA2 e PA3 para preencher as 7 vagas do PA0.</li>
-                                <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-red-500" />Túnel Bloqueado:</strong> O túnel é fechado <strong>automaticamente</strong> assim que o sistema calcula que o PA0 será completado com os carros que já estão no PA2 e em deslocamento.</li>
-                                <li><strong>Observação é Crucial:</strong> É fundamental observar o status dos PAs e os carros em deslocamento para não cometer equívocos. Não é porque o PA0 não tem 7 carros que o túnel estará livre. A prioridade é sempre o fluxo que vem dos PAs anteriores.</li>
+                                <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-green-500" />Quando o Túnel é uma Opção:</strong> O túnel deve ser usado <strong>apenas</strong> quando não há carros suficientes no PA2, PA3 e em deslocamento para preencher as 7 vagas do PA0. A prioridade é sempre do fluxo que já está nos PAs.</li>
+                                <li><strong className="flex items-center gap-2"><AlertTriangle size={16} className="text-yellow-500" />Observação é Crucial:</strong> Não é porque o PA0 tem vagas que o túnel está liberado. Você deve avaliar todo o cenário: quantos carros estão no PA2? Quantos estão se movendo do PA3 para o PA2? Acessar o túnel sem essa análise pode congestionar a operação.</li>
                             </ul>
-                            <p className="font-semibold mt-4">Exemplo Hipotético:</p>
+                            <p className="font-semibold mt-4">Exemplo Prático:</p>
                              <ul className="list-disc pl-5 space-y-2 mt-2 text-sm">
-                                <li><strong className="text-red-500">Cenário de Túnel BLOQUEADO:</strong>
+                                <li><strong className="text-red-500">Cenário de TÚNEL BLOQUEADO:</strong>
                                     <ul className="list-disc pl-5 mt-1">
-                                        <li>PA0: 5 carros</li>
-                                        <li>Em deslocamento para o PA0: 2 carros</li>
-                                        <li>PA2: 0 carros</li>
-                                        <li>Resultado: O túnel fica bloqueado, pois o sistema já tem 7 carros (5 + 2) para o PA0.</li>
+                                        <li>PA0: 4 carros</li>
+                                        <li>Em deslocamento para o PA0: 1 carro</li>
+                                        <li>PA2: 2 carros</li>
+                                        <li><strong>Resultado:</strong> O túnel está bloqueado. Embora o PA0 não esteja cheio, os 3 carros (1 em trânsito + 2 no PA2) são suficientes para completá-lo.</li>
                                     </ul>
                                 </li>
-                                <li className="mt-2"><strong className="text-green-500">Cenário de Túnel LIBERADO:</strong>
+                                <li className="mt-2"><strong className="text-green-500">Cenário de TÚNEL LIBERADO:</strong>
                                     <ul className="list-disc pl-5 mt-1">
                                         <li>PA0: 5 carros</li>
                                         <li>Em deslocamento para o PA0: 0 carros</li>
                                         <li>PA2: 0 carros</li>
-                                        <li>Resultado: O túnel é liberado para que 2 carros avancem e completem o PA0. Ele fechará assim que esses 2 carros forem anotados.</li>
+                                        <li><strong>Resultado:</strong> O túnel está liberado para 2 carros. Assim que eles acessarem, o fluxo voltará a ter prioridade pelos PAs.</li>
                                     </ul>
                                 </li>
                             </ul>
