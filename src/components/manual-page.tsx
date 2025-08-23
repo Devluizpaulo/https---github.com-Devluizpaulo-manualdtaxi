@@ -93,7 +93,7 @@ export function ManualPage() {
           <div className="flex h-20 items-center justify-between py-3">
             <div className="flex items-center gap-3 min-w-0">
                <div className="w-14 h-14 relative flex-shrink-0">
-                <Image src="/images/logo.png" alt="D-Táxi Logo" fill style={{ objectFit: 'contain' }} />
+                <Image src="/images/congonhas-airport.png" alt="D-Táxi Logo" fill style={{ objectFit: 'contain' }} />
               </div>
               <div>
                 <h1 className="text-lg font-bold truncate text-primary">
