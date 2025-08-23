@@ -74,7 +74,6 @@ export const manualSections = [
         content: ({ query }: ContentProps) => renderContent(
             <>
                 <p>O sistema do D-Táxi é uma cadeia de espera, onde os carros se movem de áreas maiores para áreas menores, mais próximas ao embarque de passageiros. O fluxo é totalmente automático, baseado no sinal de GPS e na anotação cronológica (quem chega primeiro, é solicitado primeiro).</p>
-                <p className="mt-2">As vagas são rotativas e atendem a um fluxo médio de aproximadamente <strong>90 carros por hora</strong>, sendo mais que suficiente para a operação. A intenção não é ficar estacionado, e sim ter um lugar para organizar a fila, ir ao banheiro ou pegar uma marmita rapidamente.</p>
                 <ul className="list-disc pl-5 space-y-2 mt-4">
                     <li><strong>PA5:</strong> A primeira entrada no sistema, com número ilimitado de vagas, localizado nas proximidades do Assaí Aeroporto.</li>
                     <li><strong>Bolsão Principal:</strong> Com 34 vagas, está localizado sob o viaduto da Washington Luís com Roberto Marinho, na Praça José Blota Júnior.</li>
@@ -155,12 +154,10 @@ export const manualSections = [
                     <AccordionTrigger><Highlight text="Bolsão Principal (Ponto de Espera)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                             <p className='text-sm text-muted-foreground'>06h–23h</p>
-                             <ul className="list-disc pl-5 space-y-1">
-                                <li><strong>Horário de Funcionamento:</strong> Das 6h às 23h.</li>
-                                <li><strong>Função:</strong> A primeira área de espera com capacidade limitada. Organiza a transição dos motoristas do PA5 para os próximos PAs.</li>
-                            </ul>
-                            <p><strong>Instruções de Operação:</strong></p>
+                             <p className='text-sm text-muted-foreground'>34 vagas rotativas • 06h–23h</p>
+                             <p>Apesar de ter 34 vagas, o Bolsão é dinâmico, com alta rotatividade, atendendo em média mais de 90 carros por hora. A ideia não é que todos fiquem estacionados, mas sim que o local sirva para organizar a fila e oferecer um ponto de apoio confortável e rápido para os motoristas.</p>
+                             <p className='mt-2'><strong>Função:</strong> A primeira área de espera física. Organiza a transição dos motoristas do PA5 para os próximos PAs.</p>
+                             <p className="mt-2"><strong>Instruções de Operação:</strong></p>
                             <ul className="list-disc pl-5 space-y-1">
                                 <li><strong>Conexão:</strong> A unidade deve estar anotada na fila do Bolsão e conectada ao PDA para permanecer no local.</li>
                                 <li><strong>Fluxo de Veículos:</strong> Entrada pelo portão 1 e saída pelo portão 2.</li>
