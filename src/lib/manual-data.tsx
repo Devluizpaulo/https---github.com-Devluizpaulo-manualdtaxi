@@ -3,7 +3,7 @@ import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from 'next/image';
-import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin, Link as LinkIcon, ParkingCircle } from "lucide-react";
+import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin, Link as LinkIcon, ParkingCircle, Unplug, GitBranch } from "lucide-react";
 
 
 const Pill = ({ variant, children }: { variant: 'ok' | 'warn' | 'err', children: React.ReactNode }) => {
@@ -27,7 +27,7 @@ const renderContent = (content: React.ReactNode, query: string) => {
 
 const accordionSections = {
     fluxo: ["fluxo-pa5", "fluxo-bolsao", "fluxo-pa3", "fluxo-pa2", "fluxo-piso-inf", "fluxo-piso-sup"],
-    regras: ["regras-fila-unica", "regras-gerais", "regras-obs"],
+    regras: ["regras-fila-unica", "regras-gerais", "regras-tunel", "regras-obs"],
     pda: ["pda-home", "pda-menu", "pda-solucao", "pda-requisitos"]
 };
 
@@ -155,7 +155,7 @@ export const manualSections = [
                     <AccordionContent>
                         {renderContent(<>
                              <p className='text-sm text-muted-foreground'>34 vagas rotativas • 06h–23h</p>
-                             <p>Apesar de ter 34 vagas, o Bolsão é dinâmico, com alta rotatividade, atendendo em média mais de 90 carros por hora. A ideia não é que todos fiquem estacionados, mas sim que o local sirva para organizar a fila e oferecer um ponto de apoio confortável e rápido para os motoristas.</p>
+                             <p>Apesar de ter 34 vagas, o Bolsão é dinâmico, com alta rotatividade, atendendo em média mais de 90 carros por hora. Nenhum ponto de táxi comporta todos os carros estacionados; a ideia é ter um fluxo constante. O Bolsão, embora possa parecer pequeno, é muito útil para organizar a fila e trazer conforto aos motoristas, servindo como um rápido ponto de apoio.</p>
                              <p className='mt-2'><strong>Função:</strong> A primeira área de espera física. Organiza a transição dos motoristas do PA5 para os próximos PAs.</p>
                              <p className="mt-2"><strong>Instruções de Operação:</strong></p>
                             <ul className="list-disc pl-5 space-y-1">
@@ -294,11 +294,17 @@ export const manualSections = [
                                         </ul>
                                     </li>
                                     <li><strong>Proibido Descer do Carro:</strong> Apenas em situações onde não há fiscais ou coordenadores presentes. A agilidade é crucial.</li>
+                                    <li><strong>Agilidade no Embarque:</strong> Ao chegar ao ponto, deixe o carro destravado e o porta-malas liberado (se possível, já aberto) para agilizar o embarque.</li>
+                                    <li><strong>Siga as Orientações:</strong> Fique atento às instruções dos fiscais e coordenadores de todas as empresas. A colaboração é fundamental.</li>
                                     <li>
                                         <strong><span className="text-red-500 font-bold">Tolerância Zero com Infrações:</span></strong> Unidades flagradas cortando fila, especialmente pelo acesso do piso inferior, serão <strong>removidas da fila e notificadas para suspensão</strong>.
                                     </li>
-                                    <li><strong>Agilidade no Embarque:</strong> Ao chegar ao ponto, deixe o carro destravado e o porta-malas liberado (se possível, já aberto) para agilizar o embarque.</li>
-                                    <li><strong>Siga as Orientações:</strong> Fique atento às instruções dos fiscais e coordenadores de todas as empresas. A colaboração é fundamental.</li>
+                                </ul>
+                                <p className="mt-4 font-semibold">Uso do PDA na Fila Única:</p>
+                                 <ul className="list-disc pl-5 space-y-2 mt-2">
+                                    <li><strong className='flex items-center gap-2'><Unplug size={16} />Operação Suspensa:</strong> Durante a fila única, o uso do PDA é parcialmente suspenso.</li>
+                                    <li><strong className='flex items-center gap-2'><Pill variant='ok'>Status Livre:</Pill></strong> O PDA deve permanecer no status <strong>LIVRE</strong> para registrar sua passagem e reorganizar o fluxo quando a fila única terminar.</li>
+                                    <li><strong>Permanência nos PAs:</strong> É proibido permanecer em qualquer PA sem estar devidamente anotado no sistema após o término da fila única.</li>
                                 </ul>
                              </>,
                             query
@@ -315,6 +321,41 @@ export const manualSections = [
                             </ul>,
                             query
                         )}
+                    </AccordionContent>
+                </AccordionItem>
+                 <AccordionItem value="regras-tunel">
+                    <AccordionTrigger>
+                        <Highlight text="Operação do Túnel (Acesso ao PA2)" query={query}/>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                        {renderContent(<>
+                            <p>O acesso ao PA2 via túnel é controlado automaticamente pelo sistema para garantir que o PA0 (Piso Superior) seja sempre abastecido, priorizando o embarque de passageiros.</p>
+                            <p className="font-semibold mt-2">Lógica de Funcionamento:</p>
+                             <ul className="list-disc pl-5 space-y-2 mt-2">
+                                <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-green-500" />Túnel Liberado:</strong> O túnel é liberado <strong>automaticamente</strong> apenas quando não há carros suficientes no PA2 e PA3 para preencher as 7 vagas do PA0.</li>
+                                <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-red-500" />Túnel Bloqueado:</strong> O túnel é fechado <strong>automaticamente</strong> assim que o sistema calcula que o PA0 será completado com os carros que já estão no PA2 e em deslocamento.</li>
+                                <li><strong>Observação é Crucial:</strong> É fundamental observar o status dos PAs e os carros em deslocamento para não cometer equívocos. Não é porque o PA0 não tem 7 carros que o túnel estará livre. A prioridade é sempre o fluxo que vem dos PAs anteriores.</li>
+                            </ul>
+                            <p className="font-semibold mt-4">Exemplo Hipotético:</p>
+                             <ul className="list-disc pl-5 space-y-2 mt-2 text-sm">
+                                <li><strong className="text-red-500">Cenário de Túnel BLOQUEADO:</strong>
+                                    <ul className="list-disc pl-5 mt-1">
+                                        <li>PA0: 5 carros</li>
+                                        <li>Em deslocamento para o PA0: 2 carros</li>
+                                        <li>PA2: 0 carros</li>
+                                        <li>Resultado: O túnel fica bloqueado, pois o sistema já tem 7 carros (5 + 2) para o PA0.</li>
+                                    </ul>
+                                </li>
+                                <li className="mt-2"><strong className="text-green-500">Cenário de Túnel LIBERADO:</strong>
+                                    <ul className="list-disc pl-5 mt-1">
+                                        <li>PA0: 5 carros</li>
+                                        <li>Em deslocamento para o PA0: 0 carros</li>
+                                        <li>PA2: 0 carros</li>
+                                        <li>Resultado: O túnel é liberado para que 2 carros avancem e completem o PA0. Ele fechará assim que esses 2 carros forem anotados.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </>, query)}
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="regras-obs">
@@ -413,7 +454,7 @@ export const manualSections = [
                             <ul className="list-disc pl-5 space-y-2 mt-2">
                                 <li><strong><MapIcon size={16} className="inline mr-1"/> GPS Sem Sinal:</strong> Verifique se o GPS está ativo e com permissões concedidas</li>
                                 <li><strong><Wifi size={16} className="inline mr-1"/> Falha de Conexão:</strong> Use o botão de atualização e verifique a conexão de internet</li>
-                                <li><strong><HelpCircle size={16} className="inline mr-1"/> Erro de Posicionamento:</strong> Aguarde alguns minutos para nova sincronização automática</li>
+                                <li><strong><HelpCircle size={16} className="inline mr-1"/> Erro de Posicionamento:</strong> Aguarde alguns minutes para nova sincronização automática</li>
                                 <li><strong><Settings size={16} className="inline mr-1"/> PDA Travado:</strong> Feche e reabra o aplicativo, mantendo o GPS ativo</li>
                             </ul>
                         </>, query)}
@@ -442,3 +483,5 @@ export const manualSections = [
         )
     },
 ];
+
+    
