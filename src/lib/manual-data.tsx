@@ -3,7 +3,7 @@ import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from 'next/image';
-import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin, Link as LinkIcon, ParkingCircle, Unplug, GitBranch } from "lucide-react";
+import { Home, Car, Map as MapIcon, ListChecks, CreditCard, AlertCircle, CircleDot, FileText, Smartphone, Tv, Wifi, AlertTriangle, ShieldCheck, Zap, Settings, HelpCircle, HardDrive, History, MessageSquare, User, Wrench, TerminalSquare, Siren, BarChart, MapPin, Link as LinkIcon, ParkingCircle, Unplug, GitBranch, BookUser, LogOut, FileBarChart, PlusCircle } from "lucide-react";
 
 
 const Pill = ({ variant, children }: { variant: 'ok' | 'warn' | 'err', children: React.ReactNode }) => {
@@ -41,7 +41,7 @@ export const manualSections = [
                 <p className="lead"><strong>Aeroporto de Congonhas.</strong></p>
                 <p>Este manual é o seu guia completo para operar no aeroporto pela <strong>D-TÁXI</strong>. Ele detalha o funcionamento de cada Ponto de Apoio (PA) e as regras que garantem a eficiência e o profissionalismo do nosso serviço.</p>
                 <div className="app-screenshot mt-4">
-                  <Image src="/images/aeroporto.png" width={800} height={400} alt="Foto do Aeroporto de Congonhas" className="app-img" data-ai-hint="airport terminal" />
+                  <Image src="/images/cgh.png" width={800} height={400} alt="Foto do Aeroporto de Congonhas" className="app-img" data-ai-hint="airport terminal" />
                 </div>
             </>,
             query
@@ -329,7 +329,7 @@ export const manualSections = [
                     </AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                            <p>O acesso ao <strong>PA0 (Piso Superior)</strong> via túnel é uma manobra estratégica para garantir que a área de embarque principal seja sempre abastecida, priorizando o atendimento ao passageiro. O controle desse fluxo não é feito pelo aplicativo, mas sim pela <strong>observação e bom senso</strong> dos motoristas.</p>
+                            <p>O acesso ao <strong>PA0 (Piso Superior)</strong> via túnel é uma manobra estratégica para garantir que a área de embarque principal seja sempre abastecida, priorizando o atendimento ao passageiro. O controle desse fluxo é feito pela <strong>observação e bom senso</strong> dos motoristas, não pelo aplicativo.</p>
                             <p className="font-semibold mt-2">Lógica de Funcionamento:</p>
                              <ul className="list-disc pl-5 space-y-2 mt-2">
                                 <li><strong className="flex items-center gap-2"><GitBranch size={16} className="text-green-500" />Quando o Túnel é uma Opção:</strong> O túnel deve ser usado <strong>apenas</strong> quando não há carros suficientes no PA2, PA3 e em deslocamento para preencher as 7 vagas do PA0. A prioridade é sempre do fluxo que já está nos PAs.</li>
@@ -418,22 +418,27 @@ export const manualSections = [
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="pda-menu">
-                    <AccordionTrigger><Highlight text="Menu de Navegação (Menu Hambúrguer)" query={query} /></AccordionTrigger>
+                    <AccordionTrigger><Highlight text="Menu de Navegação (Menu Lateral)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                            <p>O menu lateral, acessado pelo ícone de "hambúrguer", contém atalhos para diversas áreas administrativas e de suporte do aplicativo.</p>
-                            <ul className="list-disc pl-5 space-y-2 mt-4">
-                                <li><strong className='flex items-center gap-2'><Settings size={16}/>Configurações:</strong> Ajustes gerais do aplicativo.</li>
-                                <li><strong className='flex items-center gap-2'><History size={16}/>Histórico de Corridas:</strong> Consulte suas corridas anteriores.</li>
-                                <li><strong className='flex items-center gap-2'><MessageSquare size={16}/>Histórico de Mensagens:</strong> Acesse o histórico de comunicações.</li>
-                                <li><strong className='flex items-center gap-2'><Smartphone size={16}/>Versão do Aplicativo:</strong> Verifique a version atual do app.</li>
-                                <li><strong className='flex items-center gap-2'><User size={16}/>Perfil:</strong> Acesse e edite suas informações de perfil.</li>
-                                <li><strong className='flex items-center gap-2'><Car size={16}/>Dados do Carro:</strong> Informações sobre o veículo cadastrado.</li>
-                                <li><strong className='flex items-center gap-2'><User size={16}/>Dados do Motorista:</strong> Suas informações como motorista.</li>
-                                <li><strong className='flex items-center gap-2'><Wrench size={16}/>Preferências:</strong> Personalize as configurações do aplicativo.</li>
-                                <li><strong className='flex items-center gap-2'><TerminalSquare size={16}/>Gerar Corrida via Totem:</strong> Funcionalidade para iniciar corridas a partir do totem.</li>
-                                <li><strong className='flex items-center gap-2 text-red-500'><Siren size={16}/>QRU:</strong> Alerta de emergência.</li>
-                            </ul>
+                            <p>O menu lateral, acessado pelo ícone de "hambúrguer" no topo da tela, contém atalhos para diversas áreas administrativas e de suporte do aplicativo.</p>
+                            <div className="grid md:grid-cols-2 gap-4 mt-4">
+                                <div className="app-screenshot">
+                                    <Image src="/images/pda-menu.png" width={400} height={800} alt="Menu lateral do aplicativo PDA" className="app-img" data-ai-hint="app side menu" />
+                                </div>
+                                <div>
+                                    <ul className="list-disc pl-5 space-y-2 my-2">
+                                        <li><strong className='flex items-center gap-2'><User size={16}/>Meu Perfil:</strong> Acesse e edite suas informações de perfil e dados.</li>
+                                        <li><strong className='flex items-center gap-2'><History size={16}/>Histórico de Corridas:</strong> Consulte as corridas que você já realizou.</li>
+                                        <li><strong className='flex items-center gap-2'><MessageSquare size={16}/>Histórico de Mensagens:</strong> Acesse o histórico de comunicações com a central.</li>
+                                        <li><strong className='flex items-center gap-2'><FileBarChart size={16}/>Relatórios:</strong> Visualize seus relatórios de performance.</li>
+                                        <li><strong className='flex items-center gap-2'><PlusCircle size={16}/>Gerar Corrida:</strong> Funcionalidade para iniciar corridas manualmente.</li>
+                                        <li><strong className='flex items-center gap-2'><Wrench size={16}/>Preferências:</strong> Personalize as configurações do aplicativo.</li>
+                                        <li><strong className='flex items-center gap-2 text-red-500'><LogOut size={16}/>Sair:</strong> Desconectar do aplicativo.</li>
+                                    </ul>
+                                     <p className="text-xs text-muted-foreground mt-4">O menu também dá acesso aos <strong>Termos de Uso</strong>, <strong>Política de Privacidade</strong> e informa a <strong>versão atual</strong> do aplicativo.</p>
+                                </div>
+                            </div>
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
