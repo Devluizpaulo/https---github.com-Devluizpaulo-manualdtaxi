@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HighlightContent, Highlight } from '@/components/ui/highlight';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -136,7 +135,7 @@ export const manualSections = [
                                 <div>
                                     <h5 className="font-semibold">3️⃣ Vindo do Brooklin (pela Av. Jornalista Roberto Marinho → sentido aeroporto)</h5>
                                     <ul className="list-disc pl-5 space-y-1 text-sm mt-1">
-                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14} /> Onde aguardar:</strong> vias próximas à comunidade, de preferência na “rua de cima”, como Rua Joaquim Nabuco ou Rua Laplace.</li>
+                                        <li><strong className="inline-flex items-center gap-2"><ParkingCircle size={14} /> Onde aguardar:</strong> vias próximas à comunidade, de preferência na "rua de cima", como Rua Joaquim Nabuco ou Rua Laplace.</li>
                                         <li><strong>✅ Alternativa:</strong> pode optar por aguardar próximo ao Assaí.</li>
                                         <li><strong className="inline-flex items-center gap-2">🔔 Quando chamado:</strong> siga com tranquilidade para a entrada do bolsão.</li>
                                         <li><a href="https://maps.app.goo.gl/igBXAEd3we3DGXxs5" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline"><LinkIcon size={14} /> Localização no mapa</a></li>
@@ -194,10 +193,11 @@ export const manualSections = [
                             <p className="text-sm text-muted-foreground mb-2">É <strong>estritamente proibido</strong> manobrar diretamente na R. Tamoios a partir do PA3.</p>
                             <p className="text-sm"><strong>Rota Obrigatória:</strong> Para acessar a baia principal da rua Tamoios, siga obrigatoriamente o contorno pelas ruas laterais:</p>
                             <ol className="list-decimal pl-5 space-y-1 text-sm mt-2">
-                                <li><strong>R. Tamoios</strong> → <strong>Rua Visconde de Ourem</strong> ao lado do Habib's</li>
-                                <li><strong>Rua Visconde de Ourem</strong> → <strong>Rua Capiberibe</strong></li>
-                                <li><strong>Rua Capiberibe</strong> → <strong>R. Tamoios</strong></li>
-                                <li><strong>R. Tamoios</strong> → no sentido <strong>Av. Washington Luís</strong></li>
+                                <li><strong>R. Tamoios</strong> → a direita na <strong>Rua Padre Leonardo</strong> ao lado do Habib's</li>
+                                <li><strong>Rua Padre Leonardo</strong> → a esquerda na <strong>R. Capiberibe</strong></li>
+                                <li><strong>R. Capiberibe</strong> → a esquerda na <strong>R. Visconde de Ourem</strong></li>
+                                <li><strong>R. Visconde de Ourem</strong> → a esquerda na <strong>R. Tamoios</strong></li>
+                                <li><strong>R. Tamoios</strong> →  estacione na baia principal no sentido <strong>Av. Washington Luís</strong></li>
                             </ol>
                             <p className="text-sm text-muted-foreground mt-2">Esta rota é obrigatória para evitar congestionamento e garantir a segurança do tráfego na avenida principal.</p>
 
@@ -215,17 +215,169 @@ export const manualSections = [
                     <AccordionTrigger><Highlight text="PA2 (Ponto Final de Espera)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                            <p className='text-sm text-muted-foreground'>12 vagas</p>
-                            <ul className="list-disc pl-5 space-y-1">
-                                <li><strong>Localização:</strong> Extensão do desembarque, próximo à portaria 3 da Gol.</li>
-                                <li><strong>Função:</strong> Última área antes do embarque no Piso Superior (PA0).</li>
-                            </ul>
-                            <p><strong>Instruções:</strong></p>
-                            <ul className="list-disc pl-5 space-y-1">
-                                <li>Permaneça próximo ao veículo; a fila avança rapidamente.</li>
-                                <li>Ultrapassagens são proibidas a partir da faixa em frente à VASP.</li>
-                                <li>Não limpar o carro no local, não buzinar, não abandonar o carro.</li>
-                            </ul>
+                            <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800 mb-4">
+                                <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-3 flex items-center gap-2">
+                                    <MapPin size={18} className="text-orange-500" />
+                                    PA2 (Ponto Final de Espera)
+                                </h4>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-orange-200 dark:border-orange-700 mb-3">
+                                            <h5 className="font-semibold text-orange-600 dark:text-orange-400 mb-2 flex items-center gap-2">
+                                                🚗 <span className="text-2xl">12</span> Vagas Disponíveis
+                                            </h5>
+                                            <p className="text-sm text-orange-600 dark:text-orange-400">
+                                                <strong>📍 Localização:</strong> Extensão do desembarque, próximo à portaria 3 da Gol
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-700">
+                                            <h5 className="font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
+                                                🎯 <span className="text-lg">Função Estratégica</span>
+                                            </h5>
+                                            <p className="text-sm text-blue-600 dark:text-blue-400">
+                                                <strong>📋 Objetivo:</strong> Alimentar o PA0 (Piso Superior) com veículos organizados
+                                            </p>
+                                            <p className="text-xs text-blue-500 dark:text-blue-300 mt-2">
+                                                💡 <strong>Crítico:</strong> Sistema pode solicitar até 7 carros simultaneamente - ordem física é fundamental
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="flex justify-center items-center">
+                                            <Image src="/images/mapas.png" width={200} height={150} alt="Mapa do PA2" className="rounded-lg" />
+                                        </div>
+                                        <div className="text-center">
+                                            <p className="text-xs text-orange-600 dark:text-orange-400 mb-2">
+                                                <strong>📍 Localização do PA2</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <AlertTriangle size={18} className="text-red-500" />
+                                    Regras de Ultrapassagem
+                                </h4>
+                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-400">
+                                    <p className="text-sm text-red-700 dark:text-red-300 mb-3">
+                                        <strong>⚠️ PROIBIDO:</strong> Ultrapassagens são proibidas a partir da faixa em frente à VASP.
+                                    </p>
+
+                                    <div className="grid md:grid-cols-2 gap-4 mb-3">
+                                        <div className="flex justify-center items-center">
+                                            <Image src="/images/vasp.png" width={300} height={200} alt="Faixa de pedestre da VASP - ponto de referência para proibição de ultrapassagens" className="rounded-lg border border-red-200 dark:border-red-700" />
+                                        </div>
+                                        <div className="flex flex-col justify-center">
+                                            <p className="text-sm text-red-700 dark:text-red-300 mb-2">
+                                                <strong>🎯 Ponto de Referência:</strong>
+                                            </p>
+                                            <p className="text-xs text-red-600 dark:text-red-400">
+                                                A faixa de pedestre da VASP no <strong>Corredor Norte-Sul</strong> é o marco visual que define onde começa a zona de proibição de ultrapassagens.
+                                            </p>
+                                            <p className="text-xs text-red-600 dark:text-red-400 mt-2">
+                                                <strong>⚠️ A partir deste ponto:</strong> Respeite rigorosamente a ordem da fila física.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
+                                    <AlertTriangle size={18} className="text-red-500" />
+                                    Regras de Ultrapassagem
+                                </h4>
+                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-400">
+                                    <p className="text-sm text-red-700 dark:text-red-300 mb-3">
+                                        <strong>⚠️ PROIBIDO:</strong> Ultrapassagens são proibidas a partir da faixa em frente à VASP.
+                                    </p>
+
+                                    <div className="space-y-3">
+                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-red-200 dark:border-red-700">
+                                            <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
+                                                🚗 <span className="text-lg">Cenário 1: Chamada Individual</span>
+                                            </h5>
+                                            <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-2 rounded border border-green-200 dark:border-green-700 mb-2">
+                                                <p className="text-xs text-green-700 dark:text-green-300">
+                                                    📱 <strong>Situação:</strong> Sistema chama apenas sua unidade
+                                                </p>
+                                            </div>
+                                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                                                🎯 <strong>Ação:</strong> Siga o PDA mesmo estando fisicamente em 2ª ou 3ª posição
+                                            </p>
+                                            <div className="mt-2 p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-700">
+                                                <p className="text-xs text-green-700 dark:text-green-300">
+                                                    ✅ <strong>Permitido:</strong> Seguir ordem do sistema
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-red-200 dark:border-red-700">
+                                            <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
+                                                🚙 <span className="text-lg">Cenário 2: Chamada Múltipla</span>
+                                            </h5>
+                                            <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-2 rounded border border-red-200 dark:border-red-700 mb-2">
+                                                <p className="text-xs text-red-700 dark:text-red-300">
+                                                    📱 <strong>Situação:</strong> Sistema chama mais de uma unidade
+                                                </p>
+                                            </div>
+                                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                                                🎯 <strong>Ação:</strong> Respeite a sequência física da fila
+                                            </p>
+                                            <div className="mt-2 p-2 bg-red-50 dark:bg-red-900/20 rounded border border-red-200 dark:border-red-700">
+                                                <p className="text-xs text-red-700 dark:text-red-300">
+                                                    ❌ <strong>Proibido:</strong> Ultrapassar posição física
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-3 flex items-center gap-2">
+                                    📋 <span className="text-lg">Regras de Conduta</span>
+                                </h4>
+                                <div className="grid md:grid-cols-2 gap-3">
+                                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-3 rounded-lg border border-green-200 dark:border-green-700">
+                                        <h5 className="font-semibold text-green-600 dark:text-green-400 mb-2 flex items-center gap-2">
+                                            ✅ <span className="text-sm">O que FAZER</span>
+                                        </h5>
+                                        <ul className="space-y-1 text-xs text-green-600 dark:text-green-400">
+                                            <li>🚗 <strong>Permaneça no veículo:</strong> Fique próximo ao carro</li>
+                                            <li>⚡ <strong>Esteja atento:</strong> A fila avança rapidamente</li>
+                                            <li>🎯 <strong>Mantenha o foco:</strong> Pronto para avançar</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-3 rounded-lg border border-red-200 dark:border-red-700">
+                                        <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
+                                            ❌ <span className="text-sm">O que NÃO fazer</span>
+                                        </h5>
+                                        <ul className="space-y-1 text-xs text-red-600 dark:text-red-400">
+                                            <li>🚫 <strong>Não limpe o carro:</strong> Este não é o momento</li>
+                                            <li>🔇 <strong>Não buzine:</strong> Mantenha o silêncio</li>
+                                            <li>🏃 <strong>Não abandone:</strong> Não saia do local</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-400">
+                                    <p className="text-sm text-yellow-700 dark:text-yellow-300 flex items-center gap-2">
+                                        ⚠️ <strong>CRÍTICO:</strong> O PA2 alimenta o PA0 com até 7 carros simultaneamente. A ordem física da fila é fundamental para a eficiência da operação!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-400">
+                                <p className="text-sm text-yellow-700 dark:text-yellow-300 flex items-center gap-2">
+                                    <Info size={16} className="text-yellow-500" />
+                                    <strong>💡 Importante:</strong> A ordem do sistema pode diferir da posição física devido a variações de GPS/internet. Sempre confirme com o fiscal operacional em caso de dúvidas.
+                                </p>
+                            </div>
                         </>, query)}
                     </AccordionContent>
                 </AccordionItem>
@@ -376,7 +528,7 @@ export const manualSections = [
                 </ul>
                 <p className="mt-4"><strong>Práticas Proibidas:</strong></p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
-                    <li>Taxa de maquininha e “taxa de município” são proibidas.</li>
+                    <li>Taxa de maquininha e "taxa de município" são proibidas.</li>
                     <li>É proibido cobrar bandeira 2 fora do horário.</li>
                     <li>É proibido prolongar o trajeto propositalmente.</li>
                     <li>É proibido cobrar taxas adicionais não autorizadas.</li>
@@ -547,25 +699,25 @@ export const manualSections = [
                     <AccordionContent>
                         {renderContent(
                             <>
-                                                                 <div className="grid md:grid-cols-2 gap-6 mb-4">
-                                     <div>
-                                         <h4 className="font-semibold text-blue-600 mb-3 flex items-center gap-2">
-                                             <MessageSquare size={18} className="text-blue-500" />
-                                             Sistema de Notificações
-                                         </h4>
-                                         <ul className="list-disc pl-5 space-y-2">
-                                             <li><strong>Notificações:</strong> As solicitações para avançar aos PAs são feitas por <strong>mensagem no app e aviso sonoro</strong>. Responda prontamente para manter a eficiência da operação.</li>
-                                             <li><strong>GPS Ativo:</strong> Mantenha o GPS sempre ativo e com sinal forte para que o sistema funcione corretamente e sua posição seja registrada com precisão.</li>
-                                             <li><strong>Perda da Posição:</strong> Sair de qualquer PA sem ser solicitado ou não responder a um chamado reposiciona a unidade ao final da fila no PA5, afetando sua produtividade.</li>
-                                             <li><strong>Infrações:</strong> O descumprimento das regras pode resultar em suspensão temporária do acesso ao sistema, impactando diretamente seus ganhos.</li>
-                                         </ul>
-                                     </div>
-                                     
-                                     <div className="app-screenshot">
-                                         <Image src="/images/notificacao.png" width={400} height={600} alt="Exemplo de notificação do app para avançar aos PAs" className="app-img rounded-lg border border-gray-200 dark:border-gray-700" data-ai-hint="app notification popup" />
-                                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">Exemplo de notificação para avançar ao PA</p>
-                                     </div>
-                                 </div>
+                                <div className="grid md:grid-cols-2 gap-6 mb-4">
+                                    <div>
+                                        <h4 className="font-semibold text-blue-600 mb-3 flex items-center gap-2">
+                                            <MessageSquare size={18} className="text-blue-500" />
+                                            Sistema de Notificações
+                                        </h4>
+                                        <ul className="list-disc pl-5 space-y-2">
+                                            <li><strong>Notificações:</strong> As solicitações para avançar aos PAs são feitas por <strong>mensagem no app e aviso sonoro</strong>. Responda prontamente para manter a eficiência da operação.</li>
+                                            <li><strong>GPS Ativo:</strong> Mantenha o GPS sempre ativo e com sinal forte para que o sistema funcione corretamente e sua posição seja registrada com precisão.</li>
+                                            <li><strong>Perda da Posição:</strong> Sair de qualquer PA sem ser solicitado ou não responder a um chamado reposiciona a unidade ao final da fila no PA5, afetando sua produtividade.</li>
+                                            <li><strong>Infrações:</strong> O descumprimento das regras pode resultar em suspensão temporária do acesso ao sistema, impactando diretamente seus ganhos.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="app-screenshot">
+                                        <Image src="/images/notificacao.png" width={400} height={600} alt="Exemplo de notificação do app para avançar aos PAs" className="app-img rounded-lg border border-gray-200 dark:border-gray-700" data-ai-hint="app notification popup" />
+                                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">Exemplo de notificação para avançar ao PA</p>
+                                    </div>
+                                </div>
                                 <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-400">
                                     <p className="text-sm text-green-800 dark:text-green-200">
                                         <strong>✅ Dica de Eficiência:</strong> Mantenha o aplicativo sempre visível e responda rapidamente às notificações. Cada segundo economizado na resposta representa mais corridas e maior faturamento.
@@ -604,62 +756,62 @@ export const manualSections = [
                                         <Image src="/images/pda-home.png" width={400} height={800} alt="Tela principal do aplicativo PDA" className="app-img" data-ai-hint="app homescreen" />
                                     </div>
                                     <div>
-                                                                                 <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800 mb-4">
-                                             <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-3 flex items-center gap-2">
-                                                 <Settings size={18} className="text-blue-500" />
-                                                 Funcionalidades Principais
-                                             </h4>
-                                             <ul className="space-y-3">
-                                                 <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                                                     <div className="flex items-start gap-3">
-                                                         <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                                                             <User size={16} className="text-green-600 dark:text-green-400" />
-                                                         </div>
-                                                         <div className="flex-1">
-                                                             <strong className="text-gray-800 dark:text-gray-200">Status do Motorista:</strong>
-                                                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Um botão central e grande permite alterar seu status com um toque. As cores indicam sua condição atual:</p>
-                                                             <div className="flex flex-wrap gap-2 mt-2">
-                                                                 <Pill variant='ok'>🟢 Livre (Verde)</Pill>
-                                                                 <Pill variant='warn'>🟠 Ocupado (Laranja)</Pill>
-                                                                 <Pill variant='err'>🔴 Fim de Jornada (Vermelho)</Pill>
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </li>
-                                                 
-                                                 <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                                                     <div className="flex items-start gap-3">
-                                                         <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                                                             <MapPin size={16} className="text-purple-600 dark:text-purple-400" />
-                                                         </div>
-                                                         <div className="flex-1">
-                                                             <strong className="text-gray-800 dark:text-gray-200">Alternar Visualização:</strong>
-                                                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Botões para alternar rapidamente entre a visualização de:</p>
-                                                             <div className="flex flex-wrap gap-2 mt-2">
-                                                                 <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
-                                                                     <MapPin size={14} /> Mapa
-                                                                 </span>
-                                                                 <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
-                                                                     <BarChart size={14} /> Status dos PAs
-                                                                 </span>
-                                                             </div>
-                                                         </div>
-                                                     </div>
-                                                 </li>
-                                                 
-                                                 <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                                                     <div className="flex items-start gap-3">
-                                                         <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                                                             <BarChart size={16} className="text-orange-600 dark:text-orange-400" />
-                                                         </div>
-                                                         <div className="flex-1">
-                                                             <strong className="text-gray-800 dark:text-gray-200">Exibição de PAs:</strong>
-                                                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">A visualização de status mostra apenas os Pontos de Apoio (PAs) que têm veículos, otimizando a visualização e ocultando áreas vazias.</p>
-                                                         </div>
-                                                     </div>
-                                                 </li>
-                                             </ul>
-                                         </div>
+                                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800 mb-4">
+                                            <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-3 flex items-center gap-2">
+                                                <Settings size={18} className="text-blue-500" />
+                                                Funcionalidades Principais
+                                            </h4>
+                                            <ul className="space-y-3">
+                                                <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                                            <User size={16} className="text-green-600 dark:text-green-400" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <strong className="text-gray-800 dark:text-gray-200">Status do Motorista:</strong>
+                                                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Um botão central e grande permite alterar seu status com um toque. As cores indicam sua condição atual:</p>
+                                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                                <Pill variant='ok'>🟢 Livre (Verde)</Pill>
+                                                                <Pill variant='warn'>🟠 Ocupado (Laranja)</Pill>
+                                                                <Pill variant='err'>🔴 Fim de Jornada (Vermelho)</Pill>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                                            <MapPin size={16} className="text-purple-600 dark:text-purple-400" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <strong className="text-gray-800 dark:text-gray-200">Alternar Visualização:</strong>
+                                                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Botões para alternar rapidamente entre a visualização de:</p>
+                                                            <div className="flex flex-wrap gap-2 mt-2">
+                                                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                                                                    <MapPin size={14} /> Mapa
+                                                                </span>
+                                                                <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
+                                                                    <BarChart size={14} /> Status dos PAs
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                                                    <div className="flex items-start gap-3">
+                                                        <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                                            <BarChart size={16} className="text-orange-600 dark:text-orange-400" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <strong className="text-gray-800 dark:text-gray-200">Exibição de PAs:</strong>
+                                                            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">A visualização de status mostra apenas os Pontos de Apoio (PAs) que têm veículos, otimizando a visualização e ocultando áreas vazias.</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </>, query)}
@@ -688,7 +840,7 @@ export const manualSections = [
                                             <li><strong className='flex items-center gap-2'><History size={16} />Histórico de Corridas:</strong> Consulte as corridas que você já realizou.</li>
                                             <li><strong className='flex items-center gap-2'><MessageSquare size={16} />Histórico de Mensagens:</strong> Acesse o histórico de comunicações com a central.</li>
                                             <li><strong className='flex items-center gap-2'><FileText size={16} />Relatórios:</strong> Visualize relatórios e estatísticas das suas atividades.</li>
-                                                                                         <li><strong className='flex items-center gap-2'><PlusCircle size={16} />Gerar Corrida:</strong> Funcionalidade para iniciar novas corridas. Totem ou em dinheiro (QRU).</li>
+                                            <li><strong className='flex items-center gap-2'><PlusCircle size={16} />Gerar Corrida:</strong> Funcionalidade para iniciar novas corridas. Totem ou em dinheiro (QRU).</li>
                                             <li><strong className='flex items-center gap-2'><Settings size={16} />Preferências:</strong> Personalize as configurações do aplicativo.</li>
                                             <li><strong className='flex items-center gap-2'><LogOut size={16} />Sair:</strong> Encerra a sessão e sai do aplicativo.</li>
                                         </ul>
