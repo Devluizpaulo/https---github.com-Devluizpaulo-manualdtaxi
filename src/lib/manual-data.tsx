@@ -286,7 +286,7 @@ export const manualSections = [
                                                     <div className="flex-1">
                                                         <h5 className="font-bold text-red-700 dark:text-red-300 mb-1">Proibição de Ultrapassagem</h5>
                                                         <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                            <strong>Proibido ultrapassar</strong> a partir da faixa de pedestre da VASP (Corredor Norte-Sul)
+                                                            <strong>Proibido ultrapassar</strong> a partir da faixa de pedestre da VASP <br/>(Corredor Norte-Sul)
                                                         </p>
                                                     </div>
                                                 </div>
@@ -300,7 +300,7 @@ export const manualSections = [
                                                     <div className="flex-1">
                                                         <h5 className="font-bold text-red-700 dark:text-red-300 mb-2">Marco Visual</h5>
                                                         <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                                                            <strong>A faixa é o marco visual</strong> que define o início da zona de proibição
+                                                            <strong>A faixa é o marco visual</strong> que define o início da zona de proibição.
                                                         </p>
                                                     </div>
                                                 </div>
