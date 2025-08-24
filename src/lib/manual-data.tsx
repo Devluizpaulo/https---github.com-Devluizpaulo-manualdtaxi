@@ -215,121 +215,53 @@ export const manualSections = [
                     <AccordionTrigger><Highlight text="PA2 (Ponto Final de Espera)" query={query} /></AccordionTrigger>
                     <AccordionContent>
                         {renderContent(<>
-                            <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800 mb-4">
-                                <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-3 flex items-center gap-2">
-                                    <MapPin size={18} className="text-orange-500" />
-                                    PA2 (Ponto Final de Espera)
-                                </h4>
-                                <div className="grid md:grid-cols-2 gap-4">
-                                    <div>
-                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-orange-200 dark:border-orange-700 mb-3">
-                                            <h5 className="font-semibold text-orange-600 dark:text-orange-400 mb-2 flex items-center gap-2">
-                                                🚗 <span className="text-2xl">12</span> Vagas Disponíveis
-                                            </h5>
-                                            <p className="text-sm text-orange-600 dark:text-orange-400">
-                                                <strong>📍 Localização:</strong> Extensão do desembarque, próximo à portaria 3 da Gol
-                                            </p>
-                                        </div>
-
-                                        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-700">
-                                            <h5 className="font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
-                                                🎯 <span className="text-lg">Função Estratégica</span>
-                                            </h5>
-                                            <p className="text-sm text-blue-600 dark:text-blue-400">
-                                                <strong>📋 Objetivo:</strong> Alimentar o PA0 (Piso Superior) com veículos organizados
-                                            </p>
-                                            <p className="text-xs text-blue-500 dark:text-blue-300 mt-2">
-                                                💡 <strong>Crítico:</strong> Sistema pode solicitar até 7 carros simultaneamente - ordem física é fundamental
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-3">
-                                        <div className="flex justify-center items-center">
-                                            <Image src="/images/mapas.png" width={200} height={150} alt="Mapa do PA2" className="rounded-lg" />
-                                        </div>
-                                        <div className="text-center">
-                                            <p className="text-xs text-orange-600 dark:text-orange-400 mb-2">
-                                                <strong>📍 Localização do PA2</strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mb-4">
-                                <h4 className="font-semibold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
-                                    <AlertTriangle size={18} className="text-red-500" />
-                                    Regras de Ultrapassagem
-                                </h4>
-                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-400">
-                                    <p className="text-sm text-red-700 dark:text-red-300 mb-3">
-                                        <strong>⚠️ PROIBIDO:</strong> Ultrapassagens são proibidas a partir da faixa em frente à VASP.
-                                    </p>
-
-                                    <div className="grid md:grid-cols-2 gap-4 mb-3">
-                                        <div className="flex justify-center items-center">
-                                            <Image src="/images/vasp.png" width={300} height={200} alt="Faixa de pedestre da VASP - ponto de referência para proibição de ultrapassagens" className="rounded-lg border border-red-200 dark:border-red-700" />
-                                        </div>
-                                        <div className="flex flex-col justify-center">
-                                            <p className="text-sm text-red-700 dark:text-red-300 mb-2">
-                                                <strong>🎯 Ponto de Referência:</strong>
-                                            </p>
-                                            <p className="text-xs text-red-600 dark:text-red-400">
-                                                A faixa de pedestre da VASP no <strong>Corredor Norte-Sul</strong> é o marco visual que define onde começa a zona de proibição de ultrapassagens.
-                                            </p>
-                                            <p className="text-xs text-red-600 dark:text-red-400 mt-2">
-                                                <strong>⚠️ A partir deste ponto:</strong> Respeite rigorosamente a ordem da fila física.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mb-4">
-                                <h4 className="font-semibold text-red-600 dark:text-red-400 mb-3 flex items-center gap-2">
-                                    <AlertTriangle size={18} className="text-red-500" />
-                                    Regras de Ultrapassagem
-                                </h4>
-                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-l-4 border-red-400">
-                                    <p className="text-sm text-red-700 dark:text-red-300 mb-3">
-                                        <strong>⚠️ PROIBIDO:</strong> Ultrapassagens são proibidas a partir da faixa em frente à VASP.
-                                    </p>
-
-                                    <div className="space-y-3">
-                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-red-200 dark:border-red-700">
-                                            <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
-                                                🚗 <span className="text-lg">Cenário 1: Chamada Individual</span>
-                                            </h5>
-                                            <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-2 rounded border border-green-200 dark:border-green-700 mb-2">
-                                                <p className="text-xs text-green-700 dark:text-green-300">
-                                                    📱 <strong>Situação:</strong> Sistema chama apenas sua unidade
-                                                </p>
+                            {/* Visão Geral */}
+                            <div className="mb-6">
+                                <h3 className="text-lg font-bold text-orange-600 mb-3">📋 Visão Geral</h3>
+                                <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border-2 border-orange-200 dark:border-orange-800 shadow-sm">
+                                    <div className="grid md:grid-cols-2 gap-8">
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
+                                                <span className="text-orange-500 font-bold text-2xl">🚗</span>
+                                                <div>
+                                                    <strong className="text-orange-700 dark:text-orange-300">Capacidade:</strong>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">12 vagas</p>
+                                                </div>
                                             </div>
-                                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
-                                                🎯 <strong>Ação:</strong> Siga o PDA mesmo estando fisicamente em 2ª ou 3ª posição
-                                            </p>
-                                            <div className="mt-2 p-2 bg-green-50 dark:bg-green-900/20 rounded border border-green-200 dark:border-green-700">
-                                                <p className="text-xs text-green-700 dark:text-green-300">
-                                                    ✅ <strong>Permitido:</strong> Seguir ordem do sistema
-                                                </p>
+                                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
+                                                <span className="text-orange-500 font-bold text-2xl">🎯</span>
+                                                <div>
+                                                    <strong className="text-orange-700 dark:text-orange-300">Função:</strong>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Alimentar estrategicamente o PA0 (Piso Superior)</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
+                                                <span className="text-orange-500 font-bold text-2xl">⚡</span>
+                                                <div>
+                                                    <strong className="text-orange-700 dark:text-orange-300">Operação:</strong>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Sistema pode solicitar até 7 carros simultaneamente</p>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-red-200 dark:border-red-700">
-                                            <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
-                                                🚙 <span className="text-lg">Cenário 2: Chamada Múltipla</span>
-                                            </h5>
-                                            <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-2 rounded border border-red-200 dark:border-red-700 mb-2">
-                                                <p className="text-xs text-red-700 dark:text-red-300">
-                                                    📱 <strong>Situação:</strong> Sistema chama mais de uma unidade
-                                                </p>
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
+                                                <span className="text-orange-500 font-bold text-2xl">📍</span>
+                                                <div>
+                                                    <strong className="text-orange-700 dark:text-orange-300">Localização:</strong>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Extensão do desembarque, próximo à portaria 3 da Gol</p>
+                                                </div>
                                             </div>
-                                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
-                                                🎯 <strong>Ação:</strong> Respeite a sequência física da fila
-                                            </p>
-                                            <div className="mt-2 p-2 bg-red-50 dark:bg-red-900/20 rounded border border-red-200 dark:border-red-700">
-                                                <p className="text-xs text-red-700 dark:text-red-300">
-                                                    ❌ <strong>Proibido:</strong> Ultrapassar posição física
+                                            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
+                                                <span className="text-orange-500 font-bold text-2xl">⚠️</span>
+                                                <div>
+                                                    <strong className="text-orange-700 dark:text-orange-300">Importância:</strong>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Área crítica para manter a ordem física da fila e garantir eficiência</p>
+                                                </div>
+                                            </div>
+                                            <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500 shadow-sm">
+                                                <p className="text-sm text-red-700 dark:text-red-300 flex items-center gap-2">
+                                                    <AlertTriangle size={18} className="text-red-500" />
+                                                    <strong>🚨 Alerta Crítico:</strong> O PA2 alimenta o PA0 com até 7 carros simultaneamente. ➡️ Respeitar a ordem física é essencial para a eficiência da operação.
                                                 </p>
                                             </div>
                                         </div>
@@ -337,46 +269,218 @@ export const manualSections = [
                                 </div>
                             </div>
 
-                            <div className="mb-4">
-                                <h4 className="font-semibold text-orange-700 dark:text-orange-300 mb-3 flex items-center gap-2">
-                                    📋 <span className="text-lg">Regras de Conduta</span>
+                            {/* Regras de Ultrapassagem */}
+                            <div className="mb-6">
+                                <h4 className="font-semibold text-red-700 dark:text-red-300 mb-4 flex items-center gap-2">
+                                    <AlertTriangle size={18} />
+                                    ⚖️ Regras de Ultrapassagem
                                 </h4>
-                                <div className="grid md:grid-cols-2 gap-3">
-                                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-3 rounded-lg border border-green-200 dark:border-green-700">
-                                        <h5 className="font-semibold text-green-600 dark:text-green-400 mb-2 flex items-center gap-2">
+                                <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                        <div className="space-y-4">
+                                            <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border-2 border-red-300 dark:border-red-700 shadow-md hover:shadow-lg transition-all duration-300">
+                                                <div className="flex items-start gap-1">
+                                                    <div className="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                                        <span className="text-red-600 dark:text-red-400 text-xl">🚫</span>
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <h5 className="font-bold text-red-700 dark:text-red-300 mb-1">Proibição de Ultrapassagem</h5>
+                                                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                            <strong>Proibido ultrapassar</strong> a partir da faixa de pedestre da VASP (Corredor Norte-Sul)
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border-2 border-red-300 dark:border-red-700 shadow-md hover:shadow-lg transition-all duration-300">
+                                                <div className="flex items-start gap-3">
+                                                    <div className="w-14 h-14 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                                        <span className="text-red-600 dark:text-red-400 text-xl">🎯</span>
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <h5 className="font-bold text-red-700 dark:text-red-300 mb-2">Marco Visual</h5>
+                                                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                            <strong>A faixa é o marco visual</strong> que define o início da zona de proibição
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border-l-4 border-amber-500">
+                                                <div className="flex items-start gap-3">
+                                                    <span className="text-amber-600 dark:text-amber-400 text-xl">⚠️</span>
+                                                    <div>
+                                                        <p className="text-sm text-amber-700 dark:text-amber-300 font-medium">
+                                                            <strong>Importante:</strong> Respeitar esta regra é fundamental para a segurança e eficiência da operação.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-center">
+                                            <div className="relative group overflow-hidden rounded-xl border-2 border-red-300 dark:border-red-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                                <Image
+                                                    src="/images/vasp.png"
+                                                    width={500}
+                                                    height={350}
+                                                    alt="Faixa de pedestre da VASP - ponto de referência para proibição de ultrapassagens"
+                                                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-110"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                <div className="absolute bottom-2 left-2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                                                    📍 Ponto de Referência
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Regras de Operação */}
+                            <div className="mb-6">
+                                <h4 className="font-semibold text-blue-600 mb-3 flex items-center gap-2">
+                                    <Settings size={18} />
+                                    Regras de Operação
+                                </h4>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                                        <h5 className="font-semibold text-green-700 dark:text-green-300 mb-3 flex items-center gap-2">
                                             ✅ <span className="text-sm">O que FAZER</span>
                                         </h5>
-                                        <ul className="space-y-1 text-xs text-green-600 dark:text-green-400">
-                                            <li>🚗 <strong>Permaneça no veículo:</strong> Fique próximo ao carro</li>
-                                            <li>⚡ <strong>Esteja atento:</strong> A fila avança rapidamente</li>
-                                            <li>🎯 <strong>Mantenha o foco:</strong> Pronto para avançar</li>
+                                        <ul className="space-y-2 text-sm text-green-600 dark:text-green-400">
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-green-500 font-bold">🚗</span>
+                                                <span><strong>Ficar próximo ao veículo:</strong> Pronto para partir</span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-green-500 font-bold">⚡</span>
+                                                <span><strong>Estar sempre atento:</strong> A fila avança rápido</span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-green-500 font-bold">🎯</span>
+                                                <span><strong>Avançar apenas quando for solicitado</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-green-500 font-bold">📱</span>
+                                                <span><strong>Monitorar constantemente o PDA</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-green-500 font-bold">🚙</span>
+                                                <span><strong>Estacionar os carros próximos:</strong> Para acomodar melhor</span>
+                                            </li>
                                         </ul>
                                     </div>
 
-                                    <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-3 rounded-lg border border-red-200 dark:border-red-700">
-                                        <h5 className="font-semibold text-red-600 dark:text-red-400 mb-2 flex items-center gap-2">
+                                    <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+                                        <h5 className="font-semibold text-red-700 dark:text-red-300 mb-3 flex items-center gap-2">
                                             ❌ <span className="text-sm">O que NÃO fazer</span>
                                         </h5>
-                                        <ul className="space-y-1 text-xs text-red-600 dark:text-red-400">
-                                            <li>🚫 <strong>Não limpe o carro:</strong> Este não é o momento</li>
-                                            <li>🔇 <strong>Não buzine:</strong> Mantenha o silêncio</li>
-                                            <li>🏃 <strong>Não abandone:</strong> Não saia do local</li>
+                                        <ul className="space-y-2 text-sm text-red-600 dark:text-red-400">
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-red-500 font-bold">🧽</span>
+                                                <span><strong>Limpar o carro no PA2</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-red-500 font-bold">🔊</span>
+                                                <span><strong>Buzinar</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-red-500 font-bold">↩️</span>
+                                                <span><strong>Dar ré e ou passar sobre a calçada</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-red-500 font-bold">🚕</span>
+                                                <span><strong>Abandonar o carro na BAIA</strong></span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="text-red-500 font-bold">⏭️</span>
+                                                <span><strong>Ultrapassar a fila física</strong></span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div className="mt-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-400">
-                                    <p className="text-sm text-yellow-700 dark:text-yellow-300 flex items-center gap-2">
-                                        ⚠️ <strong>CRÍTICO:</strong> O PA2 alimenta o PA0 com até 7 carros simultaneamente. A ordem física da fila é fundamental para a eficiência da operação!
+                            {/* Cenários Operacionais */}
+                            <div className="mb-6">
+                                <h4 className="font-semibold text-purple-600 mb-3 flex items-center gap-2">
+                                    <ListChecks size={18} />
+                                    🔄 Cenários Operacionais – Como Resolver Conflitos
+                                </h4>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                                        <h5 className="font-semibold text-green-700 dark:text-green-300 mb-3 flex items-center gap-2">
+                                            🚗 <span className="text-sm">Cenário 1 – Chamada Individual</span>
+                                        </h5>
+                                        <div className="space-y-3 text-sm text-green-600 dark:text-green-400">
+                                            <p><strong>Situação:</strong> O PDA chama apenas a sua unidade.</p>
+
+                                            <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded border border-green-300 dark:border-green-700">
+                                                <p className="mb-2"><strong>Exemplo Prático:</strong></p>
+                                                <p>• Você chegou fisicamente em 2º lugar</p>
+                                                <p>• Mas o PDA mostra você em 1º lugar</p>
+                                                <p>• E o sistema chama apenas você</p>
+                                                <p className="mt-2">➡️ <strong>SOLUÇÃO:</strong> Siga o PDA!</p>
+                                            </div>
+
+                                            <div className="bg-green-200 dark:bg-green-800 p-2 rounded border border-green-400 dark:border-green-600">
+                                                <p className="text-green-800 dark:text-green-200">
+                                                    ✅ <strong>Regra:</strong> Quando só você é chamado, a prioridade é do sistema.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+                                        <h5 className="font-semibold text-red-700 dark:text-red-300 mb-3 flex items-center gap-2">
+                                            🚙 <span className="text-sm">Cenário 2 – Chamada Múltipla</span>
+                                        </h5>
+                                        <div className="space-y-3 text-sm text-red-600 dark:text-red-400">
+                                            <p><strong>Situação:</strong> O PDA chama várias unidades ao mesmo tempo.</p>
+
+                                            <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded border border-red-300 dark:border-red-700">
+                                                <p className="mb-2"><strong>Exemplo Prático:</strong></p>
+                                                <p>• Você chegou fisicamente em 2º lugar</p>
+                                                <p>• O PDA mostra você em 1º lugar</p>
+                                                <p>• Mas o sistema chama você E o carro da frente</p>
+                                                <p className="mt-2">➡️ <strong>SOLUÇÃO:</strong> Respeite a ordem física!</p>
+                                            </div>
+
+                                            <div className="bg-red-200 dark:bg-red-800 p-2 rounded border border-red-400 dark:border-red-600">
+                                                <p className="text-red-800 dark:text-red-200">
+                                                    ❌ <strong>Proibido:</strong> Ultrapassar quem chegou antes fisicamente.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border-l-4 border-amber-500">
+                                    <p className="text-sm text-amber-700 dark:text-amber-300 flex items-center gap-2">
+                                        <AlertTriangle size={16} className="text-amber-500" />
+                                        <strong>⚠️ Regra Absoluta:</strong> Se uma unidade já estiver em movimento, não pode ser ultrapassada em nenhuma hipótese.
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-400">
-                                <p className="text-sm text-yellow-700 dark:text-yellow-300 flex items-center gap-2">
-                                    <Info size={16} className="text-yellow-500" />
-                                    <strong>💡 Importante:</strong> A ordem do sistema pode diferir da posição física devido a variações de GPS/internet. Sempre confirme com o fiscal operacional em caso de dúvidas.
-                                </p>
+                            {/* Alertas e Dicas Finais */}
+                            <div className="space-y-4">
+
+
+                                <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                                    <p className="text-sm text-blue-700 dark:text-blue-300 flex items-center gap-2">
+                                        <Info size={16} className="text-blue-500" />
+                                        <strong>💡 Dica Operacional:</strong> Divergências podem ocorrer por falhas de GPS/internet. Em caso de dúvida → confirme com o fiscal operacional.
+                                    </p>
+                                </div>
+
+                                <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                                    <p className="text-sm text-green-700 dark:text-green-300 flex items-center gap-2">
+                                        <Zap size={16} className="text-green-500" />
+                                        <strong>💰 Impacto Operacional:</strong> Cada minuto de atraso ou desorganização prejudica a eficiência do PA0. ➡️ Ordem física + atenção ao sistema = produtividade para todos.
+                                    </p>
+                                </div>
                             </div>
                         </>, query)}
                     </AccordionContent>
