@@ -186,7 +186,11 @@ export const manualSections = [
                             <ul className="list-disc pl-5 space-y-1">
                                 <li>Puxe os carros à frente quando um colega sair para evitar lacunas.</li>
                                 <li>Limpeza rápida com pano é permitida; limpeza com água é proibida.</li>
-                                <li>Abandonar o veículo na via pública, para impossibilitar a ação da fiscalização, em especial próximo a pontos de estacionamento de táxi.(Redação dada pela Lei nº 10.308/1987)</li>
+                                <li>
+    Proibido abandonar o veículo na via pública, para impossibilitar a ação da fiscalização,
+    em especial próximo a pontos de estacionamento de táxi.
+    <small>(Redação dada pela Lei nº 10.308/1987)</small>
+  </li>
                             </ul>
 
                             <p className="mt-3"><strong className='text-red-500'>⚠️ MANOBRA OBRIGATÓRIA:</strong></p>
@@ -1045,6 +1049,7 @@ export const manualSections = [
         )
     },
 ];
+
 
 
 
