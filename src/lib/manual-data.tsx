@@ -471,7 +471,7 @@ export const manualSections = [
                                 <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
                                     <p className="text-sm text-blue-700 dark:text-blue-300 flex items-center gap-2">
                                         <Info size={16} className="text-blue-500" />
-                                        <strong>💡 Dica Operacional:</strong> Divergências podem ocorrer por falhas de GPS/internet. Em caso de dúvida → confirme com o fiscal operacional.
+                                        <strong>💡 Dica Operacional:</strong> Divergências podem ocorrer por falhas de GPS/internet. Em caso de dúvida → confirme com o coordenador.
                                     </p>
                                 </div>
 
@@ -1045,5 +1045,6 @@ export const manualSections = [
         )
     },
 ];
+
 
 
