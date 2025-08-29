@@ -40,7 +40,7 @@ export const manualSections = [
                 <p className="lead"><strong>Aeroporto de Congonhas.</strong></p>
                 <p>Este manual é o seu guia completo para operar no aeroporto pela <strong>D-TÁXI</strong>. Ele detalha o funcionamento de cada Ponto de Apoio (PA) e as regras que garantem a eficiência e o profissionalismo do nosso serviço. Siga estas orientações para maximizar seus ganhos e manter o alto padrão da empresa.</p>
                 <div className="mt-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-orange-400">
-                    <p className="text-sm text-orange-800 dark:text-orange-200"><strong>⚡ OPERAÇÃO DE ALTA EFICIÊNCIA:</strong> A operação realiza cerca de <strong>3000 embarques por dia</strong>. Cada minuto perdido afeta diretamente o número de corridas e seus ganhos. A eficiência é crucial para maximizar sua receita diária.</p>
+                    <p className="text-sm text-orange-800 dark:text-orange-200"><strong>⚡ OPERAÇÃO DE ALTA EFICIÊNCIA:</strong> A operação realiza cerca de <strong>4000 embarques por dia</strong>. Cada minuto perdido afeta diretamente o número de corridas e seus ganhos. A eficiência é crucial para maximizar sua receita diária.</p>
                 </div>
                 <div className="app-screenshot mt-4">
                     <Image src="/images/cgh.png" width={800} height={400} alt="Foto do Aeroporto de Congonhas" className="app-img" data-ai-hint="airport terminal" />
@@ -1045,3 +1045,4 @@ export const manualSections = [
         )
     },
 ];
+
