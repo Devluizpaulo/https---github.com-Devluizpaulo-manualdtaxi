@@ -606,7 +606,7 @@ export const manualSections = [
 
                                 <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-400">
                                     <p className="text-sm text-red-800 dark:text-red-200">
-                                        <strong>💰 IMPACTO FINANCEIRO:</strong> Com 3000 embarques diários, cada minuto de atraso pode custar corridas valiosas. A agilidade no embarque e respeito às regras operacionais são investimentos diretos no seu faturamento.
+                                        <strong>💰 IMPACTO FINANCEIRO:</strong> Com 4000 embarques diários, cada minuto de atraso pode custar corridas valiosas. A agilidade no embarque e respeito às regras operacionais são investimentos diretos no seu faturamento.
                                     </p>
                                 </div>
                             </div>
@@ -1045,6 +1045,7 @@ export const manualSections = [
         )
     },
 ];
+
 
 
 
