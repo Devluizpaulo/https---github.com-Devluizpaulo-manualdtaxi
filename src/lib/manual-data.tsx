@@ -232,7 +232,7 @@ export const manualSections = [
                                                 <span className="text-orange-500 font-bold text-2xl">🎯</span>
                                                 <div>
                                                     <strong className="text-orange-700 dark:text-orange-300">Função:</strong>
-                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Alimentar estrategicamente o PA0 (Piso Superior)</p>
+                                                    <p className="text-sm text-gray-600 dark:text-gray-400">Guarnecer estrategicamente o PA0 (Piso Superior)</p>
                                                 </div>
                                             </div>
                                             <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-lg border border-orange-200 dark:border-orange-700">
@@ -1045,4 +1045,5 @@ export const manualSections = [
         )
     },
 ];
+
 
